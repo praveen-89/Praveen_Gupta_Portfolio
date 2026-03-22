@@ -152,37 +152,68 @@ export type CertType = {
   date: string;
   icon: string;
   color: string;
+  link?: string;
 };
 
 export const certifications: CertType[] = [
   {
-    title: "AI & ML Fundamentals",
+    title: "IBM Granite for Software Development",
+    issuer: "IBM SkillsBuild",
+    date: "2026",
+    icon: "code2",
+    color: "from-pink-600 to-rose-600",
+    link: "https://drive.google.com/file/d/1rUzAYugzM6POC5s4LmR3iQZ5-C_m2CvF/view?usp=sharing",
+  },
+  {
+    title: "AI Agent Architech",
+    issuer: "IBM SkillsBuild",
+    date: "2025",
+    icon: "award",
+    color: "from-blue-600 to-indigo-600",
+    link: "https://drive.google.com/file/d/1QLrssKD9T74zEapxWvP2bYfMKFfIJxEf/view?usp=sharing",
+  },
+  {
+    title: "Artificial Intelligence Fundamentals",
     issuer: "IBM SkillsBuild",
     date: "2024",
     icon: "award",
     color: "from-blue-500 to-cyan-500",
+    link: "https://drive.google.com/file/d/1Q5CTussf8L1SaTsC_tNN5j6IoKlOX5zV/view?usp=sharing",
   },
   {
-    title: "Developer Program",
+    title: "Project Management Fundamentals",
+    issuer: "IBM SkillsBuild",
+    date: "2024",
+    icon: "brain",
+    color: "from-purple-600 to-indigo-600",
+    link: "https://drive.google.com/file/d/1-16W4KxTaJvelCfyZQ5fTvrLGpvbOJBD/view?usp=sharing",
+  },
+  {
+    title: "Developer and Technology Program",
     issuer: "Accenture",
     date: "2024",
     icon: "briefcase",
     color: "from-purple-500 to-pink-500",
+    link: "https://drive.google.com/file/d/1p1Mpa_3OLU65VBZkhLbjeWo4nO39zL1O/view?usp=sharing",
   },
   {
     title: "AWS Solution Architect",
     issuer: "Amazon Web Services",
-    date: "2023",
+    date: "2024",
     icon: "cloud",
     color: "from-orange-500 to-yellow-500",
+    link: "https://drive.google.com/file/d/1-xQjyhkWYkl3dLnYE2fLK4_RvqFHwOND/view?usp=sharing",
   },
   {
-    title: "Cloud Computing Fundamentals",
+    title: "Cloud Technology",
     issuer: "Infosys Springboard",
-    date: "2023",
+    date: "2024",
     icon: "server",
     color: "from-green-500 to-teal-500",
+    link: "https://drive.google.com/file/d/1y7iokpwzak8sDXVnn7h4aubPWzhwp_1e/view?usp=sharing",
   },
+
+
 ];
 
 // ─── Experience ──────────────────────────────────────────────
