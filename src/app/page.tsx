@@ -6,6 +6,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   Download,
+  ExternalLink,
   Mail,
   Github,
   Linkedin,
@@ -153,8 +154,18 @@ export default function HomePage() {
               View Projects <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href={siteConfig.resume}
-              download
+              href={siteConfig.resumeView}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
+            >
+              <ExternalLink className="w-4 h-4" /> View Resume
+            </a>
+            <a
+              href={siteConfig.resumeDownload}
+              download="Praveen_Gupta_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
             >
               <Download className="w-4 h-4" /> Download Resume

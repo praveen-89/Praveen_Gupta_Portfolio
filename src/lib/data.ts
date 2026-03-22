@@ -5,13 +5,16 @@
 export const siteConfig = {
   name: "Praveen Gupta",
   title: "Full Stack Developer | AI/ML Engineer",
-  education: "B.Tech in Computer Science and Engineering",
-  email: "praveengupta@example.com",
+  education: "B.Tech in Computer Science and Technology",
+  email: "praveen.strange0@gmail.com",
   github: "https://github.com/praveen-89",
-  linkedin: "https://linkedin.com/in/praveen-gupta",
-  resume: "/resume.pdf",
+  linkedin: "https://www.linkedin.com/in/praveen-gupta11",
+  // View resume in browser (Google Drive preview)
+  resumeView: "https://drive.google.com/file/d/10ExqYZ9JGO1TwPFNfrZr5jCabeNcJWV2/view?usp=sharing",
+  // Direct download link
+  resumeDownload: "https://drive.google.com/uc?export=download&id=10ExqYZ9JGO1TwPFNfrZr5jCabeNcJWV2",
   description:
-    "I am a Full-Stack developer who loves building scalable web applications and exploring AI/ML technologies. I have experience in full-stack development and have built multiple real-world projects involving backend systems, machine learning, and intelligent automation.",
+    "I'm a Full-Stack Developer & AI/ML Engineer building scalable web apps and intelligent automation systems. From AI voice agents to healthcare dashboards, I turn ideas into production-grade products powered by React, Next.js, Node.js, and cloud-native workflows.",
 };
 
 // ─── Skills ─────────────────────────────────────────────────
@@ -80,62 +83,50 @@ export type ProjectType = {
 
 export const projects: ProjectType[] = [
   {
-    id: "banking-management",
-    title: "Banking Management System",
+    id: "helloalex",
+    title: "HelloAlex",
     description:
-      "A console-based banking system built with C++ featuring account management, deposits, withdrawals, and transaction history.",
+      "An AI voice support agent built with Next.js, Express, and Gemini that automates 80%+ of customer queries with multi-module intent handling.",
     longDescription:
-      "A comprehensive console-based Banking Management System implemented in C++. It supports creating and managing multiple bank accounts, performing deposits and withdrawals, tracking transaction history, and calculating interest. Uses OOP principles including inheritance, polymorphism, and encapsulation to structure the codebase.",
-    tags: ["C++", "OOP", "Data Structures", "Console App"],
-    category: "Systems",
-    github: "https://github.com/praveen-89",
+      "HelloAlex is a production-grade AI Customer Support Voice Agent. Built with Next.js, Express.js, and Google Gemini AI, it automates 80%+ of inbound customer queries. The system implements 4+ intelligent modules covering intent detection, sentiment analysis, order management, and returns/refunds — improving resolution rates by 60%. Features a real-time support dashboard, voice I/O, cloud deployment on Vercel, and handles 100+ concurrent sessions.",
+    tags: ["Next.js", "Express.js", "Gemini AI", "Voice AI", "Node.js", "Cloud"],
+    category: "AI/ML",
+    github: "https://github.com/praveen-89/HelloAlex",
+    demo: "https://hello-alex-five.vercel.app",
     featured: true,
   },
   {
-    id: "file-organizer",
-    title: "File Organizer Tool",
+    id: "diabetes-help",
+    title: "Diabetes_Help",
     description:
-      "An intelligent Python-based file organizer that automatically categorizes and sorts files by type, date, and size.",
+      "A full-stack healthcare platform with 3 user roles enabling appointments, digital health records, and real-time scheduling for 1000+ patients.",
     longDescription:
-      "A smart file organization tool built in Python that monitors a directory and automatically categorizes files into folders based on their extension, creation date, or custom rules. Features a configurable rule engine, undo functionality, and a summary report generated after each run.",
-    tags: ["Python", "Automation", "File System", "CLI"],
-    category: "Automation",
-    github: "https://github.com/praveen-89",
+      "Diabetes_Help is a comprehensive full-stack healthcare management platform designed to streamline care for diabetic patients. Built with React (TypeScript), Tailwind CSS, and Supabase, it supports 3 distinct user roles (Patient, Doctor, Admin) with secure authentication, digital health records, appointment scheduling, and real-time dashboards. Manages 1000+ secure patient records and improves operational efficiency by 50% through automated scheduling and live updates.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Healthcare", "PostgreSQL"],
+    category: "Web",
+    github: "https://github.com/praveen-89/Diabetes_Help",
     featured: true,
   },
   {
     id: "ai-restaurant-chatbot",
     title: "AI Restaurant Chatbot",
     description:
-      "An AI-powered chatbot for restaurants using IBM Watsonx that handles reservations, menu queries, and customer support.",
+      "An AI-powered chatbot built with IBM WatsonX that handles restaurant reservations, menu queries, and customer support.",
     longDescription:
-      "Built using IBM Watsonx Assistant, this conversational AI handles restaurant use cases including table reservations, answering menu queries, providing allergen information, and routing customer complaints. Integrated with a simple Node.js backend for reservation management and session handling.",
-    tags: ["IBM Watsonx", "AI", "Node.js", "Chatbot", "NLP"],
+      "Built during the IBM SkillsBuild AI/ML internship, this conversational AI handles restaurant use cases including table reservations, answering menu queries, providing allergen information, and routing customer complaints. Integrated with a Node.js backend for reservation management. Part of the Diabetes & Kidney Stone prediction solution ecosystem developed using IBM WatsonX for healthcare analytics.",
+    tags: ["IBM WatsonX", "AI", "Node.js", "Chatbot", "NLP"],
     category: "AI/ML",
     github: "https://github.com/praveen-89",
-    demo: "#",
     featured: true,
   },
   {
-    id: "face-detection",
-    title: "Face Detection System",
+    id: "diabetes-kidney-prediction",
+    title: "Diabetes & Kidney Stone Predictor",
     description:
-      "A real-time face detection system using Python and OpenCV capable of detecting multiple faces in images and video streams.",
+      "ML models trained to predict Diabetes and detect Kidney Stones using data preprocessing, feature engineering, and IBM WatsonX workflows.",
     longDescription:
-      "A real-time face detection application built with Python and OpenCV. Utilizes Haar Cascade Classifiers and DNN-based detection to identify and bound multiple faces in both static images and live webcam feeds. Includes optional landmark detection and age/gender estimation pipeline.",
-    tags: ["Python", "OpenCV", "Computer Vision", "ML"],
-    category: "AI/ML",
-    github: "https://github.com/praveen-89",
-    featured: false,
-  },
-  {
-    id: "kidney-stone-detection",
-    title: "Kidney Stone Detection ML Model",
-    description:
-      "A machine learning model trained to detect kidney stones in ultrasound images with high accuracy using image classification.",
-    longDescription:
-      "A healthcare AI project that applies machine learning to detect kidney stones from medical ultrasound images. Pre-processes raw images, extracts meaningful features, and trains a classification model (SVM + CNN pipeline) to distinguish stone-present vs normal samples. Achieved strong validation accuracy and built a lightweight web interface for live predictions.",
-    tags: ["Python", "Machine Learning", "CNN", "Healthcare AI", "scikit-learn"],
+      "Developed during the IBM SkillsBuild AI/ML internship, this project features two healthcare prediction models. The Diabetes predictor uses logistic regression and ensemble methods on clinical data, while the Kidney Stone detector uses image-based ML models. Both were built using data preprocessing pipelines, feature engineering, and end-to-end AI workflows designed on IBM WatsonX for healthcare analytics.",
+    tags: ["Python", "Machine Learning", "IBM WatsonX", "Healthcare AI", "scikit-learn"],
     category: "AI/ML",
     github: "https://github.com/praveen-89",
     featured: false,
@@ -143,7 +134,7 @@ export const projects: ProjectType[] = [
 ];
 
 // ─── Project filter categories ────────────────────────────────
-export const projectCategories = ["All", "AI/ML", "Automation", "Systems"];
+export const projectCategories = ["All", "AI/ML", "Web"];
 
 // ─── Certifications ──────────────────────────────────────────
 export type CertType = {
@@ -219,11 +210,21 @@ export const certifications: CertType[] = [
 // ─── Experience ──────────────────────────────────────────────
 export const experiences = [
   {
-    role: "Full Stack Development Intern",
-    company: "Tech Startup (Remote)",
-    duration: "2024 — Present",
+    role: "Software Engineer Intern",
+    company: "YugaYatra Retail (OPC) Private Ltd",
+    location: "Bangalore, India",
+    duration: "Sep 2025 — Present",
     description:
-      "Contributed to building web applications using React and Node.js. Integrated RESTful APIs, improved UI performance, and collaborated on AI-powered features using IBM Watsonx.",
-    tags: ["React", "Node.js", "REST APIs", "IBM Watsonx"],
+      "Built a Power BI dashboard using automated GCP workflows, improving reporting efficiency by 50%. Forged strong stakeholder relationships by driving new initiatives and achieving project goals and annual renewals. Demonstrated strong qualities of problem solving, collaboration, planning, agile methodology, productivity, and communication.",
+    tags: ["Power BI", "GCP", "Agile", "Stakeholder Management", "Automation"],
+  },
+  {
+    role: "Artificial Intelligence & Machine Learning Intern",
+    company: "IBM SkillsBuild",
+    location: "Noida, India",
+    duration: "June 2024 — July 2024",
+    description:
+      "Developed AI solutions including a restaurant chatbot and Diabetes & Kidney Stone prediction models. Built and optimized ML models using data preprocessing and feature engineering for accurate predictions. Designed end-to-end AI workflows using IBM WatsonX for healthcare analytics.",
+    tags: ["IBM WatsonX", "Machine Learning", "Python", "AI", "Healthcare AI"],
   },
 ];

@@ -5,6 +5,7 @@ import {
   Briefcase,
   CalendarDays,
   CheckCircle2,
+  MapPin,
 } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { CertCard } from "@/components/ui/cert-card";
@@ -65,6 +66,12 @@ export function ExperiencePageContent() {
                       <Briefcase className="w-3.5 h-3.5" />
                       {exp.company}
                     </p>
+                    {exp.location && (
+                      <p className="text-muted-foreground text-xs flex items-center gap-1 mt-0.5">
+                        <MapPin className="w-3 h-3" />
+                        {exp.location}
+                      </p>
+                    )}
                   </div>
                   <span className="flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 px-3 py-1.5 rounded-full">
                     <CalendarDays className="w-3.5 h-3.5" />
