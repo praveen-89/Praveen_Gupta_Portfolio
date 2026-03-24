@@ -10,6 +10,7 @@ import {
 import { Section, SectionHeader } from "@/components/ui/section";
 import { CertCard } from "@/components/ui/cert-card";
 import { SkillProgress } from "@/components/ui/skill-badge";
+import { ExperienceCard } from "@/components/ui/experience-card";
 import { experiences, certifications, skillsWithProgress } from "@/lib/data";
 
 export function ExperiencePageContent() {
@@ -45,55 +46,9 @@ export function ExperiencePageContent() {
           title="Professional Experience"
           description="Hands-on roles where I applied my skills to real-world products."
         />
-        <div className="space-y-6">
+        <div className="space-y-8">
           {experiences.map((exp, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative pl-8 border-l-2 border-primary/30"
-            >
-              {/* Timeline dot */}
-              <div className="absolute -left-[9px] top-5 w-4 h-4 rounded-full bg-primary border-2 border-background" />
-
-              <div className="p-6 rounded-2xl bg-card border card-hover">
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                  <div>
-                    <h3 className="text-lg font-bold">{exp.role}</h3>
-                    <p className="text-muted-foreground text-sm flex items-center gap-1.5 mt-0.5">
-                      <Briefcase className="w-3.5 h-3.5" />
-                      {exp.company}
-                    </p>
-                    {exp.location && (
-                      <p className="text-muted-foreground text-xs flex items-center gap-1 mt-0.5">
-                        <MapPin className="w-3 h-3" />
-                        {exp.location}
-                      </p>
-                    )}
-                  </div>
-                  <span className="flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 px-3 py-1.5 rounded-full">
-                    <CalendarDays className="w-3.5 h-3.5" />
-                    {exp.duration}
-                  </span>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {exp.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-muted text-muted-foreground"
-                    >
-                      <CheckCircle2 className="w-3 h-3 text-green-500" />
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            <ExperienceCard key={exp.company + exp.role} exp={exp} index={i} />
           ))}
         </div>
       </Section>

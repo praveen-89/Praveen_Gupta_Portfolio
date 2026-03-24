@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Send, Github, Linkedin, Mail, CheckCircle2, AlertCircle, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
+import emailjs from "@emailjs/browser";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { siteConfig } from "@/lib/data";
 
@@ -27,19 +28,36 @@ export function ContactPageContent() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    if (!formRef.current) return;
+
+    const data = new FormData(formRef.current);
     const errs = validate(data);
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
       return;
     }
+
     setErrors({});
     setFormState("loading");
 
-    // Simulated submission — replace with EmailJS / API route
-    await new Promise((r) => setTimeout(r, 1500));
-    setFormState("success");
-    formRef.current?.reset();
+    try {
+      const result = await emailjs.sendForm(
+        siteConfig.emailjs.serviceId,
+        siteConfig.emailjs.templateId,
+        formRef.current,
+        siteConfig.emailjs.publicKey
+      );
+
+      if (result.text === "OK") {
+        setFormState("success");
+        formRef.current.reset();
+      } else {
+        throw new Error(result.text);
+      }
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setFormState("error");
+    }
   };
 
   const inputClass =

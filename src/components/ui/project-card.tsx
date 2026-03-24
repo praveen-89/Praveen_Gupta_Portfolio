@@ -9,9 +9,10 @@ import type { ProjectType } from "@/lib/data";
 interface ProjectCardProps {
   project: ProjectType;
   index?: number;
+  onClick?: () => void;
 }
 
-export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export function ProjectCard({ project, index = 0, onClick }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -19,10 +20,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className={cn(
-        "group relative flex flex-col rounded-2xl border bg-card p-6 card-hover",
+        "group relative flex flex-col rounded-2xl border bg-card p-6 card-hover cursor-pointer",
         project.featured &&
           "border-primary/20 ring-1 ring-primary/10"
       )}
+      onClick={onClick}
     >
       {project.featured && (
         <span className="absolute top-4 right-4 text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded-full">
@@ -32,7 +34,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
       {/* Category Tag */}
       <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
-        <Tag className="w-3 h-3" />
+        <Tag className="w-4 h-4" />
         <span>{project.category}</span>
       </div>
 
@@ -62,9 +64,10 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          onClick={(e) => e.stopPropagation()}
+          className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group/link z-10"
         >
-          <Github className="w-4 h-4" />
+          <Github className="w-5 h-5" />
           GitHub
         </Link>
         {project.demo && project.demo !== "#" && (
@@ -72,10 +75,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors ml-auto"
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors ml-auto group/demo z-10"
           >
             Live Demo
-            <ExternalLink className="w-3.5 h-3.5" />
+            <ExternalLink className="w-4 h-4 group-hover/demo:translate-x-0.5 group-hover/demo:-translate-y-0.5 transition-transform" />
           </Link>
         )}
       </div>

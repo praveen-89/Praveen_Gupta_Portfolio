@@ -36,21 +36,17 @@ export function AboutPageContent() {
             <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
               Who Am I
             </p>
-            <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl font-black tracking-normal mb-6">
               About <span className="gradient-text">Me</span>
             </h1>
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <GraduationCap className="w-4 h-4 text-primary" />
-                B.Tech in Computer Science & Engineering
+                {siteConfig.education}
               </span>
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-4 h-4 text-primary" />
-                India
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-primary" />
-                Class of 2025
+                {siteConfig.university}
               </span>
             </div>
           </motion.div>
@@ -100,9 +96,12 @@ export function AboutPageContent() {
             />
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I&apos;m currently pursuing my B.Tech in Computer Science & Engineering, where I
-                have developed a strong foundation in algorithms, data structures, and
-                software engineering principles.
+                I&apos;m currently pursuing my {siteConfig.education} at{" "}
+                <span className="font-bold text-foreground">
+                  {siteConfig.university}
+                </span>
+                , where I have developed a strong foundation in algorithms, data
+                structures, and software engineering principles.
               </p>
               <p>
                 My passion lies at the intersection of web development and artificial
@@ -139,8 +138,8 @@ export function AboutPageContent() {
                 className="p-5 rounded-2xl bg-card border card-hover"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-primary" />
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <Icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-bold text-sm">{cat.title}</h3>
                 </div>

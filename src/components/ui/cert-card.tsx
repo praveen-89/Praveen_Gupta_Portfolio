@@ -33,11 +33,11 @@ export function CertCard({ cert, index = 0 }: CertCardProps) {
     >
       <div
         className={cn(
-          "w-11 h-11 shrink-0 rounded-xl flex items-center justify-center bg-gradient-to-br",
+          "w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center bg-gradient-to-br shadow-lg",
           cert.color
         )}
       >
-        <Icon className="w-5 h-5 text-white" />
+        <Icon className="w-6 h-6 text-white" />
       </div>
       <div className="flex-1 min-w-0">
         <h4 className="font-semibold text-sm leading-snug truncate" title={cert.title}>

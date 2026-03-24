@@ -29,7 +29,7 @@ export function Footer() {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             {socialLinks.map(({ href, icon: Icon, label }) => (
               <Link
                 key={label}
@@ -37,9 +37,9 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-200 hover:scale-110"
+                className="w-10 h-10 rounded-xl glass border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 hover:scale-110 shadow-sm"
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-5 h-5" />
               </Link>
             ))}
           </div>

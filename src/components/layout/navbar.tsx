@@ -30,16 +30,16 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
         scrolled
-          ? "glass border-b shadow-lg shadow-black/5"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-md border-border shadow-lg shadow-black/5 py-1"
+          : "bg-background/40 backdrop-blur-sm py-2"
       )}
     >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center transition-transform group-hover:scale-110">
             <Zap className="w-4 h-4 text-white" />
           </div>
           <span className="font-bold text-lg tracking-tight group-hover:gradient-text transition-all">
@@ -48,7 +48,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-3">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -56,19 +56,12 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200",
+                    "relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 border",
                     isActive
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "text-primary bg-primary/10 border-primary/20 shadow-sm"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50 border-transparent hover:border-border/50 hover:shadow-sm"
                   )}
                 >
-                  {isActive && (
-                    <motion.span
-                      layoutId="navbar-pill"
-                      className="absolute inset-0 rounded-lg bg-primary/10"
-                      transition={{ type: "spring", duration: 0.5 }}
-                    />
-                  )}
                   <span className="relative z-10">{link.label}</span>
                 </Link>
               </li>
@@ -97,9 +90,9 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden glass border-b px-4 py-4"
+            className="md:hidden bg-background/98 backdrop-blur-xl border-b shadow-2xl px-4 py-6"
           >
-            <ul className="flex flex-col gap-1">
+            <ul className="flex flex-col gap-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -108,10 +101,10 @@ export function Navbar() {
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
                       className={cn(
-                        "block px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                        "block px-6 py-3 rounded-full text-base font-semibold transition-all border",
                         isActive
-                          ? "text-primary bg-primary/10"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                          ? "text-primary bg-primary/10 border-primary/20"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted border-transparent"
                       )}
                     >
                       {link.label}

@@ -103,102 +103,126 @@ export default function HomePage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-10 text-center max-w-4xl mx-auto"
+          className="relative z-10 grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto w-full"
         >
-          {/* Eyebrow badge */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border text-sm font-medium text-muted-foreground">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Available for opportunities
-            </span>
-          </motion.div>
+          <div className="text-left lg:text-left">
+            {/* Eyebrow badge */}
+            <motion.div variants={itemVariants} className="mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border text-sm font-medium text-muted-foreground">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                Available for opportunities
+              </span>
+            </motion.div>
 
-          {/* Name */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter mb-4 leading-none"
-          >
-            Hi, I&apos;m{" "}
-            <span className="gradient-text">{siteConfig.name.split(" ")[0]}</span>{" "}
-            <span className="gradient-text">{siteConfig.name.split(" ")[1]}</span>
-          </motion.h1>
+            {/* Name */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl sm:text-6xl lg:text-8xl font-black tracking-normal mb-4 leading-none"
+            >
+              Hi, I&apos;m{" "}
+              <br />
+              <span className="gradient-text">{siteConfig.name.split(" ")[0]}</span>{" "}
+              <span className="gradient-text">{siteConfig.name.split(" ")[1]}</span>
+            </motion.h1>
 
-          {/* Animated title */}
+            {/* Animated title */}
+            <motion.div
+              variants={itemVariants}
+              className="h-10 flex items-center mb-6"
+            >
+              <span className="text-xl sm:text-2xl font-semibold text-muted-foreground">
+                {typedText}
+                <span className="inline-block w-0.5 h-6 bg-primary ml-0.5 animate-pulse align-middle" />
+              </span>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              variants={itemVariants}
+              className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed mb-10"
+            >
+              {siteConfig.description}
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center gap-3"
+            >
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/25"
+              >
+                View Projects <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href={siteConfig.resumeView}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
+              >
+                <ExternalLink className="w-4 h-4" /> View Resume
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
+              >
+                <Mail className="w-4 h-4" /> Contact Me
+              </Link>
+            </motion.div>
+
+            {/* Social Icons */}
+            <motion.div
+              variants={itemVariants}
+              className="mt-8 flex items-center gap-5"
+            >
+              <Link
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-2xl glass border border-primary/20 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 hover:scale-110 transition-all shadow-sm hover:shadow-primary/10"
+              >
+                <Github className="w-6 h-6" />
+              </Link>
+              <Link
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-2xl glass border border-primary/20 flex items-center justify-center text-muted-foreground hove:text-primary hover:border-primary/40 hover:bg-primary/5 hover:scale-110 transition-all shadow-sm hover:shadow-primary/10"
+              >
+                <Linkedin className="w-6 h-6" />
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Hero Image Area */}
           <motion.div
             variants={itemVariants}
-            className="h-10 flex items-center justify-center mb-6"
+            className="relative hidden lg:block"
           >
-            <span className="text-xl sm:text-2xl font-semibold text-muted-foreground">
-              {typedText}
-              <span className="inline-block w-0.5 h-6 bg-primary ml-0.5 animate-pulse align-middle" />
-            </span>
-          </motion.div>
+            <motion.div
+              animate={{
+                y: [0, -10, 0]
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative z-10 w-full ml-auto group"
+            >
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+                <img
+                  src="/hero-photo.jpg"
+                  alt={siteConfig.name}
+                  className="w-full h-auto object-cover aspect-[4/3] lg:aspect-auto"
+                />
+              </div>
 
-          {/* Description */}
-          <motion.p
-            variants={itemVariants}
-            className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10"
-          >
-            {siteConfig.description}
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-3"
-          >
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/25"
-            >
-              View Projects <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href={siteConfig.resumeView}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
-            >
-              <ExternalLink className="w-4 h-4" /> View Resume
-            </a>
-            <a
-              href={siteConfig.resumeDownload}
-              download="Praveen_Gupta_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
-            >
-              <Download className="w-4 h-4" /> Download Resume
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
-            >
-              <Mail className="w-4 h-4" /> Contact Me
-            </Link>
-          </motion.div>
-
-          {/* Social Icons */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 flex items-center justify-center gap-4"
-          >
-            <Link
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl glass flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all"
-            >
-              <Github className="w-5 h-5" />
-            </Link>
-            <Link
-              href={siteConfig.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl glass flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all"
-            >
-              <Linkedin className="w-5 h-5" />
-            </Link>
+              {/* Floating decorative elements */}
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-primary/20 blur-[80px] rounded-full" />
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/20 blur-[100px] rounded-full" />
+            </motion.div>
           </motion.div>
         </motion.div>
 

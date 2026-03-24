@@ -6,6 +6,8 @@ export const siteConfig = {
   name: "Praveen Gupta",
   title: "Full Stack Developer | AI/ML Engineer",
   education: "B.Tech in Computer Science and Technology",
+  university: "Gurukul Kangri Deemed to be University, Haridwar",
+  location: "Haridwar, Uttarakhand, India",
   email: "praveen.strange0@gmail.com",
   github: "https://github.com/praveen-89",
   linkedin: "https://www.linkedin.com/in/praveen-gupta11",
@@ -15,6 +17,11 @@ export const siteConfig = {
   resumeDownload: "https://drive.google.com/uc?export=download&id=10ExqYZ9JGO1TwPFNfrZr5jCabeNcJWV2",
   description:
     "I'm a Full-Stack Developer & AI/ML Engineer building scalable web apps and intelligent automation systems. From AI voice agents to healthcare dashboards, I turn ideas into production-grade products powered by React, Next.js, Node.js, and cloud-native workflows.",
+  emailjs: {
+    serviceId: "service_cqptzf4",
+    templateId: "template_e0j8xk2",
+    publicKey: "DgMPMWHY2d0KFznkJ",
+  },
 };
 
 // ─── Skills ─────────────────────────────────────────────────
@@ -117,6 +124,7 @@ export const projects: ProjectType[] = [
     tags: ["IBM WatsonX", "AI", "Node.js", "Chatbot", "NLP"],
     category: "AI/ML",
     github: "https://github.com/praveen-89",
+    demo: "https://www.linkedin.com/posts/praveen-gupta11_ibmwatsonx-ai-chatbotdevelopment-activity-7345018597913612288-U1_r?utm_source=share&utm_medium=member_android&rcm=ACoAAEZrLnkBNeCQjNuhQWwxVDdTvNuWFFf3AWc",
     featured: true,
   },
   {
@@ -129,6 +137,7 @@ export const projects: ProjectType[] = [
     tags: ["Python", "Machine Learning", "IBM WatsonX", "Healthcare AI", "scikit-learn"],
     category: "AI/ML",
     github: "https://github.com/praveen-89",
+    demo: "https://www.linkedin.com/posts/praveen-gupta11_machinelearning-ibm-watsonx-activity-7345110369033441280-csyJ?utm_source=share&utm_medium=member_android&rcm=ACoAAEZrLnkBNeCQjNuhQWwxVDdTvNuWFFf3AWc",
     featured: false,
   },
 ];
@@ -208,23 +217,50 @@ export const certifications: CertType[] = [
 ];
 
 // ─── Experience ──────────────────────────────────────────────
-export const experiences = [
+export type ExperienceType = {
+  role: string;
+  company: string;
+  location: string;
+  duration: string;
+  description: string;
+  achievements: string[];
+  tags: string[];
+  logo?: string;
+};
+
+export const experiences: ExperienceType[] = [
   {
     role: "Software Engineer Intern",
     company: "YugaYatra Retail (OPC) Private Ltd",
-    location: "Bangalore, India",
+    location: "Remote",
     duration: "Sep 2025 — Present",
+    logo: "/yy logo.jpg",
     description:
-      "Built a Power BI dashboard using automated GCP workflows, improving reporting efficiency by 50%. Forged strong stakeholder relationships by driving new initiatives and achieving project goals and annual renewals. Demonstrated strong qualities of problem solving, collaboration, planning, agile methodology, productivity, and communication.",
-    tags: ["Power BI", "GCP", "Agile", "Stakeholder Management", "Automation"],
+      "Built a Power BI dashboard using automated GCP workflows, improving reporting efficiency by 50%. Forged strong stakeholder relationships by driving new initiatives and achieving project goals and annual renewals.",
+    achievements: [
+      "Built a Power BI dashboard using automated GCP workflows",
+      "Improved reporting efficiency by 50% through automation",
+      "Forged strong stakeholder relationships via new initiatives",
+      "Achieved project goals and annual renewals",
+      "Demonstrated Agile methodology and collaborative planning",
+      "Strong problem solving, productivity, and communication",
+    ],
+    tags: ["Power BI", "GCP", "Agile", "Stakeholder Management", "Automation", "Google Workspace", "Cursor AI"],
   },
   {
     role: "Artificial Intelligence & Machine Learning Intern",
     company: "IBM SkillsBuild",
     location: "Noida, India",
     duration: "June 2024 — July 2024",
+    logo: "/IBM logo",
     description:
-      "Developed AI solutions including a restaurant chatbot and Diabetes & Kidney Stone prediction models. Built and optimized ML models using data preprocessing and feature engineering for accurate predictions. Designed end-to-end AI workflows using IBM WatsonX for healthcare analytics.",
-    tags: ["IBM WatsonX", "Machine Learning", "Python", "AI", "Healthcare AI"],
+      "Developed AI solutions including a restaurant chatbot and Diabetes & Kidney Stone prediction models using IBM WatsonX.",
+    achievements: [
+      "Developed an AI Restaurant Chatbot with intent detection",
+      "Built Diabetes & Kidney Stone prediction models",
+      "Optimized ML models with feature engineering",
+      "Designed AI workflows on IBM WatsonX",
+    ],
+    tags: ["IBM WatsonX", "Machine Learning", "Python", "AI", "NLP"],
   },
 ];
