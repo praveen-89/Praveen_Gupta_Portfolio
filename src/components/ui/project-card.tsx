@@ -20,14 +20,14 @@ export function ProjectCard({ project, index = 0, onClick }: ProjectCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className={cn(
-        "group relative flex flex-col rounded-2xl border bg-card p-6 card-hover cursor-pointer",
+        "group relative flex flex-col rounded-2xl border bg-card p-6 orange-glass-hover cursor-pointer",
         project.featured &&
-          "border-primary/20 ring-1 ring-primary/10"
+          "border-orange/20 ring-1 ring-orange/10 shadow-lg shadow-orange/5"
       )}
       onClick={onClick}
     >
       {project.featured && (
-        <span className="absolute top-4 right-4 text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded-full">
+        <span className="absolute top-4 right-4 text-[10px] font-bold uppercase tracking-widest text-orange bg-orange/10 px-2 py-1 rounded-full">
           Featured
         </span>
       )}
@@ -38,7 +38,7 @@ export function ProjectCard({ project, index = 0, onClick }: ProjectCardProps) {
         <span>{project.category}</span>
       </div>
 
-      <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors leading-tight">
+      <h3 className="text-lg font-bold mb-2 group-hover:text-orange transition-colors leading-tight">
         {project.title}
       </h3>
 

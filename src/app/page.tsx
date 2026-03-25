@@ -14,10 +14,15 @@ import {
   Cpu,
   Globe,
   ChevronDown,
+  Award,
+  Clock,
+  Brain,
+  Cloud,
+  Sparkles,
 } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { ProjectCard } from "@/components/ui/project-card";
-import { siteConfig, projects, techStack } from "@/lib/data";
+import { siteConfig, projects, techStack, certifications, expertise } from "@/lib/data";
 
 // ─── Typing effect hook ───────────────────────────────────────
 const TITLES = [
@@ -59,14 +64,24 @@ function useTypingEffect(strings: string[], speed = 80, pause = 1800) {
 
 // ─── Tech logo pill ───────────────────────────────────────────
 const techIcons: Record<string, string> = {
-  nextjs: "N",
   react: "⚛",
-  typescript: "TS",
-  python: "Py",
   nodejs: "⬡",
-  cpp: "C++",
-  aws: "☁",
-  git: "⎇",
+  express: "EX",
+  mongodb: "M",
+  postgresql: "🐘",
+  supabase: "⚡",
+  tailwind: "≈",
+  ai: "🧠",
+  cloud: "☁",
+};
+
+// ─── Expertise icon map ───────────────────────────────────────
+const expertiseIconMap: Record<string, React.ElementType> = {
+  Globe,
+  Brain,
+  Cloud,
+  Code2,
+  Cpu,
 };
 
 // ─── Page Component ───────────────────────────────────────────
@@ -94,9 +109,10 @@ export default function HomePage() {
   return (
     <>
       {/* ─── Hero ─── */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4 sm:px-6 hero-gradient overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 px-4 sm:px-6 hero-gradient overflow-hidden">
         {/* Decorative blobs */}
         <div className="absolute top-1/4 -left-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-orange/5 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 -right-20 w-72 h-72 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
         <motion.div
@@ -106,13 +122,6 @@ export default function HomePage() {
           className="relative z-10 grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto w-full"
         >
           <div className="text-left lg:text-left">
-            {/* Eyebrow badge */}
-            <motion.div variants={itemVariants} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border text-sm font-medium text-muted-foreground">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                Available for opportunities
-              </span>
-            </motion.div>
 
             {/* Name */}
             <motion.h1
@@ -188,7 +197,7 @@ export default function HomePage() {
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-2xl glass border border-primary/20 flex items-center justify-center text-muted-foreground hove:text-primary hover:border-primary/40 hover:bg-primary/5 hover:scale-110 transition-all shadow-sm hover:shadow-primary/10"
+                className="w-12 h-12 rounded-2xl glass border border-primary/20 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 hover:scale-110 transition-all shadow-sm hover:shadow-primary/10"
               >
                 <Linkedin className="w-6 h-6" />
               </Link>
@@ -242,14 +251,14 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ─── Stats ─── */}
+      {/* ─── Stats (Dynamic) ─── */}
       <Section>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Projects Built", value: "5+", icon: Code2 },
-            { label: "Technologies", value: "12+", icon: Cpu },
-            { label: "Certifications", value: "4", icon: Globe },
-            { label: "Years Learning", value: "3+", icon: ArrowRight },
+            { label: "Projects Built", value: `${projects.length}+`, icon: Code2 },
+            { label: "Technologies", value: `${techStack.length}+`, icon: Cpu },
+            { label: "Certifications", value: `${certifications.length}`, icon: Award },
+            { label: "Years Learning", value: "3+", icon: Clock },
           ].map(({ label, value, icon: Icon }, i) => (
             <motion.div
               key={label}
@@ -267,6 +276,43 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* ─── Explore More ─── */}
+      <Section>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <p className="text-xl sm:text-2xl font-bold text-muted-foreground mb-6 tracking-wide">
+            Explore more of my work and connect with me
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-foreground text-background font-semibold text-sm hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <Github className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+              GitHub
+              <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+            </a>
+            <a
+              href={siteConfig.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-[#0A66C2] text-white font-semibold text-sm hover:scale-105 transition-all duration-300 shadow-lg shadow-[#0A66C2]/25 hover:shadow-xl hover:shadow-[#0A66C2]/30"
+            >
+              <Linkedin className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+              LinkedIn
+              <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+            </a>
+          </div>
+        </motion.div>
+      </Section>
+
       {/* ─── Tech Stack ─── */}
       <Section>
         <div className="text-center mb-10">
@@ -282,14 +328,85 @@ export default function HomePage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl glass border hover:border-primary/30 hover:text-primary transition-all hover:scale-105 cursor-default"
+              className="flex items-center gap-2.5 px-5 py-3 rounded-xl glass border orange-glass-hover hover:text-orange transition-all cursor-default mt-2"
             >
-              <span className="w-7 h-7 rounded-md bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-xs font-black text-primary">
+              <span className="w-8 h-8 rounded-md bg-gradient-to-br from-primary/20 to-orange/20 flex items-center justify-center text-sm font-black text-orange shadow-sm">
                 {techIcons[tech.icon]}
               </span>
-              <span className="text-sm font-semibold">{tech.name}</span>
+              <span className="text-[15px] font-semibold">{tech.name}</span>
             </motion.div>
           ))}
+        </div>
+      </Section>
+
+      {/* ─── What I Do (Expertise) ─── */}
+      <Section className="relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-orange/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10">
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+              What I Do
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold">
+              <span className="section-heading">My Expertise</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed text-base sm:text-lg">
+              I specialize in building full-stack applications, intelligent AI systems, and cloud-native solutions.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {expertise.map((item, i) => {
+              const Icon = expertiseIconMap[item.icon] ?? Sparkles;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.12 }}
+                  className="group relative p-8 rounded-3xl bg-card border orange-glass-hover transition-all duration-500 overflow-hidden"
+                >
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+
+                  <div className="relative z-10">
+                    {/* Icon */}
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/15 flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 border border-primary/10">
+                      <Icon className="w-7 h-7 text-primary" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors duration-300">
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                      {item.description}
+                    </p>
+
+                    {/* Highlights */}
+                    <div className="flex flex-wrap gap-2">
+                      {item.highlights.map((h) => (
+                        <span
+                          key={h}
+                          className="text-xs font-semibold px-3 py-1 rounded-lg bg-muted/50 text-muted-foreground border border-border/50 group-hover:border-primary/20 group-hover:text-primary/80 transition-colors"
+                        >
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Decorative corner dot */}
+                  <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-orange/20 group-hover:bg-orange/50 transition-colors" />
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </Section>
 
@@ -316,6 +433,51 @@ export default function HomePage() {
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
+      </Section>
+
+      {/* ─── CTA Banner ─── */}
+      <Section>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative rounded-3xl overflow-hidden p-10 sm:p-14 text-center"
+        >
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-orange/5 to-accent/10 border border-primary/10 rounded-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-orange/10 rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10">
+            <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+              Let&apos;s Build Something{" "}
+              <span className="gradient-text">Amazing Together</span>
+            </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto mb-8 leading-relaxed">
+              I&apos;m always open to new projects, collaborations, and exciting opportunities.
+              Feel free to reach out if you have an idea you&apos;d like to bring to life.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/25"
+              >
+                <Mail className="w-4 h-4" /> Get in Touch
+              </Link>
+              <a
+                href={siteConfig.resumeView}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
+              >
+                <ExternalLink className="w-4 h-4" /> View Resume
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </Section>
     </>
   );

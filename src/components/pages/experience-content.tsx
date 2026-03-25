@@ -9,9 +9,9 @@ import {
 } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { CertCard } from "@/components/ui/cert-card";
-import { SkillProgress } from "@/components/ui/skill-badge";
+import { TechSkillCard } from "@/components/ui/skill-badge";
 import { ExperienceCard } from "@/components/ui/experience-card";
-import { experiences, certifications, skillsWithProgress } from "@/lib/data";
+import { experiences, certifications, technicalSkills } from "@/lib/data";
 
 export function ExperiencePageContent() {
   return (
@@ -67,20 +67,20 @@ export function ExperiencePageContent() {
         </div>
       </Section>
 
-      {/* ─── Skills Progress ─── */}
+      {/* ─── Technical Skills ─── */}
       <Section>
         <SectionHeader
           label="Proficiency"
           title="Technical Skills"
-          description="Self-assessed proficiency levels across key technologies."
+          description="Core technologies and frameworks I use to build scalable products."
         />
-        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-6 max-w-3xl">
-          {skillsWithProgress.map((skill, i) => (
-            <SkillProgress
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {technicalSkills.map((skill, i) => (
+            <TechSkillCard
               key={skill.name}
               name={skill.name}
-              percent={skill.percent}
-              delay={i * 0.08}
+              icon={skill.icon}
+              delay={i * 0.05}
             />
           ))}
         </div>

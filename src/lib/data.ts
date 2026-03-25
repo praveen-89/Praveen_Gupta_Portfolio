@@ -48,31 +48,34 @@ export const skillCategories = [
     ],
   },
   {
-    title: "Tools & Cloud",
+    title: "Tools",
     icon: "Cloud",
-    skills: ["Git", "GitHub", "AWS", "VS Code", "Postman", "Linux"],
+    skills: ["Git", "GitHub", "VS Code", "Cursor", "Postman"],
   },
 ];
 
-export const skillsWithProgress = [
-  { name: "React / Next.js", percent: 85 },
-  { name: "Python", percent: 80 },
-  { name: "Node.js / Express", percent: 78 },
-  { name: "Machine Learning", percent: 65 },
-  { name: "C / C++", percent: 70 },
-  { name: "TypeScript", percent: 72 },
+export const technicalSkills = [
+  { name: "React / Next.js", icon: "react" },
+  { name: "Node.js / Express", icon: "nodejs" },
+  { name: "MongoDB", icon: "database" },
+  { name: "PostgreSQL", icon: "database" },
+  { name: "Supabase", icon: "database" },
+  { name: "Tailwind CSS", icon: "globe" },
+  { name: "AI & Machine Learning", icon: "brain" },
+  { name: "Cloud Computing", icon: "cloud" },
 ];
 
 // ─── Tech Stack ──────────────────────────────────────────────
 export const techStack = [
-  { name: "Next.js", icon: "nextjs" },
-  { name: "React", icon: "react" },
-  { name: "TypeScript", icon: "typescript" },
-  { name: "Python", icon: "python" },
+  { name: "React.js", icon: "react" },
   { name: "Node.js", icon: "nodejs" },
-  { name: "C++", icon: "cpp" },
-  { name: "AWS", icon: "aws" },
-  { name: "Git", icon: "git" },
+  { name: "Express.js", icon: "express" },
+  { name: "MongoDB", icon: "mongodb" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "Supabase", icon: "supabase" },
+  { name: "Tailwind CSS", icon: "tailwind" },
+  { name: "Artificial Intelligence & Machine Learning", icon: "ai" },
+  { name: "Cloud Computing", icon: "cloud" },
 ];
 
 // ─── Projects ────────────────────────────────────────────────
@@ -140,10 +143,47 @@ export const projects: ProjectType[] = [
     demo: "https://www.linkedin.com/posts/praveen-gupta11_machinelearning-ibm-watsonx-activity-7345110369033441280-csyJ?utm_source=share&utm_medium=member_android&rcm=ACoAAEZrLnkBNeCQjNuhQWwxVDdTvNuWFFf3AWc",
     featured: false,
   },
+  {
+    id: "library-monitoring-cv",
+    title: "Library Monitoring System",
+    description:
+      "A real-time Computer Vision system tracking library occupancy and resource usage using object detection algorithms.",
+    longDescription:
+      "A Computer Vision and Machine Learning application designed to monitor library environments. It leverages object detection models to count occupants, track seating availability in real-time, and analyze resource utilization. Built using Python and OpenCV, it provides automated monitoring capabilities to improve facility management and user experience in educational institutions.",
+    tags: ["Python", "Computer Vision", "OpenCV", "Object Detection", "Machine Learning"],
+    category: "AI/ML",
+    github: "https://github.com/praveen-89/Library-Monitering-System-with-Computer-Vision",
+    featured: true,
+  },
 ];
 
 // ─── Project filter categories ────────────────────────────────
 export const projectCategories = ["All", "AI/ML", "Web"];
+
+// ─── Expertise / Services ────────────────────────────────────
+export const expertise = [
+  {
+    title: "Full-Stack Development",
+    icon: "Globe",
+    description:
+      "Building end-to-end web applications with React.js, Node.js, and modern databases — from pixel-perfect Tailwind UIs to scalable Express.js APIs.",
+    highlights: ["React.js / Tailwind CSS", "Node.js / Express.js", "MongoDB", "PostgreSQL / Supabase"],
+  },
+  {
+    title: "AI & Machine Learning",
+    icon: "Brain",
+    description:
+      "Designing intelligent systems — from predictive ML models and NLP chatbots to computer vision pipelines — that solve real-world problems.",
+    highlights: ["Machine Learning", "Artificial Intelligence", "IBM WatsonX", "OpenCV"],
+  },
+  {
+    title: "Cloud & Automation",
+    icon: "Cloud",
+    description:
+      "Deploying production-grade apps on cloud platforms with CI/CD pipelines, automated workflows, and real-time monitoring dashboards.",
+    highlights: ["Cloud Computing", "GCP", "Vercel", "Power BI"],
+  },
+];
 
 // ─── Certifications ──────────────────────────────────────────
 export type CertType = {
@@ -196,14 +236,7 @@ export const certifications: CertType[] = [
     color: "from-purple-500 to-pink-500",
     link: "https://drive.google.com/file/d/1p1Mpa_3OLU65VBZkhLbjeWo4nO39zL1O/view?usp=sharing",
   },
-  {
-    title: "AWS Solution Architect",
-    issuer: "Amazon Web Services",
-    date: "2024",
-    icon: "cloud",
-    color: "from-orange-500 to-yellow-500",
-    link: "https://drive.google.com/file/d/1-xQjyhkWYkl3dLnYE2fLK4_RvqFHwOND/view?usp=sharing",
-  },
+
   {
     title: "Cloud Technology",
     issuer: "Infosys Springboard",
@@ -214,6 +247,46 @@ export const certifications: CertType[] = [
   },
 
 
+];
+
+// ─── Education ───────────────────────────────────────────────
+export type EducationType = {
+  degree: string;
+  institution: string;
+  location: string;
+  duration: string;
+  status: "Completed" | "Pursuing";
+  description: string;
+  subjects?: string[];
+};
+
+export const education: EducationType[] = [
+  {
+    degree: "Bachelor of Technology in Computer Science Engineering",
+    institution: "Gurukul Kangri Deemed to be University",
+    location: "Haridwar, Uttarakhand",
+    duration: "2023 - 2027",
+    status: "Pursuing",
+    description:
+      "Deepening my knowledge in core computer science subjects while actively building full-stack applications. Engaging in technical problem-solving and continually exploring new frameworks and AI technologies.",
+    subjects: [
+      "Data Structures & Algorithms",
+      "System Design",
+      "Database Management",
+      "Software Engineering",
+      "Computer Networks",
+      "Operating Systems",
+    ],
+  },
+  {
+    degree: "Higher Secondary (XII) - Science Stream",
+    institution: "Mahatma Gandhi Intermediate College",
+    location: "Gorakhpur, Uttar Pradesh",
+    duration: "2021 - 2022",
+    status: "Completed",
+    description:
+      "Built a solid analytical foundation with a focus on Physics, Chemistry, and Mathematics, which sparked my deep interest in logical reasoning and software engineering.",
+  },
 ];
 
 // ─── Experience ──────────────────────────────────────────────
@@ -245,7 +318,7 @@ export const experiences: ExperienceType[] = [
       "Demonstrated Agile methodology and collaborative planning",
       "Strong problem solving, productivity, and communication",
     ],
-    tags: ["Power BI", "GCP", "Agile", "Stakeholder Management", "Automation", "Google Workspace", "Cursor AI"],
+    tags: ["Power BI", "GCP", "Stakeholder Management", "Automation", "Google Workspace", "Cursor AI"],
   },
   {
     role: "Artificial Intelligence & Machine Learning Intern",

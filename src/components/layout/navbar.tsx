@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 
@@ -38,12 +38,12 @@ export function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center transition-transform group-hover:scale-110">
-            <Zap className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-bold text-lg tracking-tight group-hover:gradient-text transition-all">
-            PG
+        <Link href="/" className="flex items-center gap-1.5 group">
+          <span className="text-xl font-black tracking-widest gradient-text group-hover:opacity-80 transition-opacity">
+            Praveen
+          </span>
+          <span className="text-xl font-black tracking-widest group-hover:text-primary transition-colors">
+            Gupta
           </span>
         </Link>
 

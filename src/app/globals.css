@@ -19,6 +19,7 @@
   --color-primary-foreground: oklch(0.99 0 0);
 
   --color-accent: oklch(0.65 0.22 200);
+  --color-orange: oklch(0.75 0.18 55);
 
   --radius-card: 1rem;
   --radius-btn: 0.5rem;
@@ -40,6 +41,7 @@
   --color-primary-foreground: oklch(0.09 0.01 240);
 
   --color-accent: oklch(0.7 0.22 200);
+  --color-orange: oklch(0.8 0.18 55);
 }
 
 /* ─── Base Reset ─── */
@@ -104,11 +106,13 @@ body {
 /* ─── Noise Background Variant ─── */
 .hero-gradient {
   background: radial-gradient(ellipse 80% 60% at 50% -20%, oklch(0.65 0.22 272 / 0.15), transparent),
+              radial-gradient(ellipse 60% 50% at 20% 100%, oklch(0.75 0.18 55 / 0.1), transparent),
               radial-gradient(ellipse 60% 50% at 80% 100%, oklch(0.7 0.22 200 / 0.1), transparent);
 }
 
 .dark .hero-gradient {
   background: radial-gradient(ellipse 80% 60% at 50% -20%, oklch(0.65 0.22 272 / 0.25), transparent),
+              radial-gradient(ellipse 60% 50% at 20% 100%, oklch(0.75 0.18 55 / 0.15), transparent),
               radial-gradient(ellipse 60% 50% at 80% 100%, oklch(0.7 0.22 200 / 0.15), transparent);
 }
 
@@ -140,4 +144,21 @@ body {
 
 .dark .card-hover:hover {
   box-shadow: 0 20px 60px oklch(0 0 0 / 0.4);
+}
+
+/* ─── Orange Glass Utility ─── */
+.orange-glass-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.orange-glass-hover:hover {
+  background: oklch(0.75 0.18 55 / 0.08);
+  border-color: oklch(0.75 0.18 55 / 0.3);
+  box-shadow: 0 15px 35px -5px oklch(0.75 0.18 55 / 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.dark .orange-glass-hover:hover {
+  background: oklch(0.8 0.18 55 / 0.12);
+  border-color: oklch(0.8 0.18 55 / 0.4);
+  box-shadow: 0 15px 40px -5px oklch(0 0 0 / 0.4), 0 0 20px oklch(0.8 0.18 55 / 0.1);
 }

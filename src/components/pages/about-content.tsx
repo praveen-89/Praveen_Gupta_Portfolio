@@ -13,7 +13,8 @@ import {
 import { Section, SectionHeader } from "@/components/ui/section";
 import { SkillBadge } from "@/components/ui/skill-badge";
 import { CertCard } from "@/components/ui/cert-card";
-import { siteConfig, skillCategories, certifications } from "@/lib/data";
+import { EducationCard } from "@/components/ui/education-card";
+import { siteConfig, skillCategories, certifications, education } from "@/lib/data";
 
 const iconMap: Record<string, React.ElementType> = {
   Code2,
@@ -56,29 +57,28 @@ export function AboutPageContent() {
       {/* ─── Introduction ─── */}
       <Section>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Avatar Placeholder */}
+          {/* Photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative mx-auto lg:mx-0"
+            className="relative mx-auto lg:mx-0 -mt-6"
           >
-            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 flex items-center justify-center relative overflow-hidden border border-primary/20">
-              {/* Initials */}
-              <span className="text-6xl sm:text-7xl font-black gradient-text select-none">
-                PG
-              </span>
-              {/* Orbit decoration */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-dashed border-primary/10 animate-spin [animation-duration:20s]" />
-            </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl glass border shadow-xl">
-              <p className="text-xs font-semibold text-muted-foreground">Status</p>
-              <p className="text-sm font-bold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block" />
-                Open to Work
-              </p>
+            {/* Decorative background blobs */}
+            <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 via-orange/10 to-accent/5 rounded-[2.5rem] blur-2xl opacity-70 pointer-events-none" />
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/30 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-orange/20 rounded-full blur-[40px] pointer-events-none" />
+            <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-accent/30 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="group relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-2 border-primary/20 shadow-2xl shadow-primary/10 hover:shadow-primary/25 hover:border-primary/40 transition-all duration-500 hover:scale-[1.03]">
+              <img
+                src="/My photo.jpeg"
+                alt="Praveen Gupta"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </motion.div>
 
@@ -118,43 +118,70 @@ export function AboutPageContent() {
         </div>
       </Section>
 
+      {/* ─── Academic Journey ─── */}
+      <Section className="bg-background">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader
+            label="Education"
+            title="Academic Journey"
+            description="Building knowledge foundations and pursuing excellence in learning"
+          />
+          <div className="flex flex-col gap-6 mt-8">
+            {education.map((item, index) => (
+              <EducationCard key={item.degree} education={item} index={index} />
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* ─── Skills ─── */}
-      <Section className="bg-muted/30">
-        <SectionHeader
-          label="Expertise"
-          title="Skills & Technologies"
-          description="A curated set of technologies I've worked with across domains."
-        />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {skillCategories.map((cat, catIdx) => {
-            const Icon = iconMap[cat.icon] ?? Code2;
-            return (
-              <motion.div
-                key={cat.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: catIdx * 0.08 }}
-                className="p-5 rounded-2xl bg-card border card-hover"
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center transition-transform group-hover:scale-110">
-                    <Icon className="w-5 h-5 text-primary" />
+      <Section className="relative bg-muted/30 overflow-hidden">
+        {/* Decorative background blobs */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-5xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-5xl pointer-events-none" />
+
+        <div className="relative z-10">
+          <SectionHeader
+            label="Expertise"
+            title="Skills & Technologies"
+            description="A curated set of technologies I've worked with across domains."
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skillCategories.map((cat, catIdx) => {
+              const Icon = iconMap[cat.icon] ?? Code2;
+              return (
+                <motion.div
+                  key={cat.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: catIdx * 0.1 }}
+                  className="group relative p-6 rounded-3xl border bg-card shadow-sm hover:bg-card/40 hover:backdrop-blur-2xl hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden"
+                >
+                  {/* Subtle gradient hover effect for the card */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 border border-primary/10 shadow-inner">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="font-bold text-lg tracking-tight">{cat.title}</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {cat.skills.map((skill, idx) => (
+                        <SkillBadge
+                          key={skill}
+                          name={skill}
+                          delay={catIdx * 0.1 + idx * 0.05}
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="font-bold text-sm">{cat.title}</h3>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {cat.skills.map((skill, idx) => (
-                    <SkillBadge
-                      key={skill}
-                      name={skill}
-                      delay={catIdx * 0.08 + idx * 0.04}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </Section>
 
