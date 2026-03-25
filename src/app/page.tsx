@@ -207,7 +207,7 @@ export default function HomePage() {
           {/* Hero Image Area */}
           <motion.div
             variants={itemVariants}
-            className="relative hidden lg:block"
+            className="relative order-first lg:order-none mb-10 lg:mb-0"
           >
             <motion.div
               animate={{
@@ -218,7 +218,7 @@ export default function HomePage() {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="relative z-10 w-full ml-auto group"
+              className="relative z-10 w-full max-w-[320px] sm:max-w-sm lg:max-w-none mx-auto lg:ml-auto group"
             >
               <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                 <img
