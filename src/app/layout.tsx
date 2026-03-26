@@ -4,6 +4,8 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import GoogleAnalytics from "@/components/analytics/google-analytics";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,6 +59,7 @@ export default function RootLayout({
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
         </Providers>
+        <GoogleAnalytics />
       </body>
     </html>
   );
