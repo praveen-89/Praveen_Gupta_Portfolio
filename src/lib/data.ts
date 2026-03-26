@@ -12,9 +12,9 @@ export const siteConfig = {
   github: "https://github.com/praveen-89",
   linkedin: "https://www.linkedin.com/in/praveen-gupta11",
   // View resume in browser (Google Drive preview)
-  resumeView: "https://drive.google.com/file/d/10ExqYZ9JGO1TwPFNfrZr5jCabeNcJWV2/view?usp=sharing",
+  resumeView: "https://drive.google.com/file/d/1CCzNzWpRaZ4hDlR9u111uLgv0Q2dwySp/view?usp=sharing",
   // Direct download link
-  resumeDownload: "https://drive.google.com/uc?export=download&id=10ExqYZ9JGO1TwPFNfrZr5jCabeNcJWV2",
+  resumeDownload: "https://drive.google.com/uc?export=download&id=1CCzNzWpRaZ4hDlR9u111uLgv0Q2dwySp",
   description:
     "I'm a Full-Stack Developer & AI/ML Engineer building scalable web apps and intelligent automation systems. From AI voice agents to healthcare dashboards, I turn ideas into production-grade products powered by React, Next.js, Node.js, and cloud-native workflows.",
   emailjs: {
