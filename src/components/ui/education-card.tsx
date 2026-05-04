@@ -15,7 +15,7 @@ export function EducationCard({ education, index }: { education: EducationType; 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-card w-full rounded-2xl border border-border/50 shadow-sm hover:shadow-md hover:border-border transition-all overflow-hidden"
+      className="bg-card w-full rounded-2xl border border-border/50 shadow-sm hover:shadow-md hover:border-border transition-all overflow-hidden card-hover"
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
