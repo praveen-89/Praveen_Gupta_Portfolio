@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Send, Github, Linkedin, Mail, CheckCircle2, AlertCircle, MapPin, Clock } from "lucide-react";
+import { Send, Github, Linkedin, Mail, Phone, CheckCircle2, AlertCircle, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
 import emailjs from "@emailjs/browser";
 import { Section, SectionHeader } from "@/components/ui/section";
@@ -105,10 +105,11 @@ export function ContactPageContent() {
 
             <div className="space-y-4 mb-8">
               {[
-                { icon: Mail, label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
-                { icon: MapPin, label: "Location", value: "India", href: null },
-                { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null },
-              ].map(({ icon: Icon, label, value, href }) => (
+                { icon: Mail, label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}`, extra: null },
+                { icon: Phone, label: "Phone", value: "+91-8924928166", href: `tel:+918924928166`, extra: null },
+                { icon: MapPin, label: "Location", value: "Haridwar, Uttarakhand, India", href: null, extra: "Open to remote and relocation opportunities" },
+                { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null, extra: null },
+              ].map(({ icon: Icon, label, value, href, extra }) => (
                 <div key={label} className="flex items-center gap-4 p-4 rounded-xl glass border">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <Icon className="w-4 h-4 text-primary" />
@@ -122,6 +123,7 @@ export function ContactPageContent() {
                     ) : (
                       <p className="text-sm font-semibold">{value}</p>
                     )}
+                    {extra && <p className="text-xs text-muted-foreground mt-0.5">{extra}</p>}
                   </div>
                 </div>
               ))}

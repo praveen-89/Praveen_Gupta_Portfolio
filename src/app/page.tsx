@@ -30,7 +30,7 @@ import { siteConfig, projects, techStack, certifications, expertise, experiences
 
 // ─── Typing effect hook ───────────────────────────────────────
 const TITLES = [
-  "Full Stack Developer",
+  "Full-Stack Developer",
   "AI/ML Engineer",
   "React · Next.js Dev",
   "Problem Solver",
@@ -284,7 +284,7 @@ export default function HomePage() {
             className="w-48 h-48 sm:w-64 sm:h-64 shrink-0 rounded-3xl overflow-hidden border-2 border-primary/20 shadow-xl"
           >
             <img
-              src="/MY Recent Image.png"
+              src="/praveen-gupta-photo.png"
               alt={siteConfig.name}
               className="w-full h-full object-cover"
             />
@@ -399,7 +399,7 @@ export default function HomePage() {
           </h2>
         </div>
         <div className="space-y-4">
-          {experiences.slice(0, 2).map((exp, i) => (
+          {experiences.slice(0, 3).map((exp, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}

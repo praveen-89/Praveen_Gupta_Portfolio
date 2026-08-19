@@ -84,7 +84,7 @@ export function AboutPageContent() {
 
             <div className="group relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-2 border-primary/20 shadow-2xl shadow-primary/10 hover:shadow-primary/25 hover:border-primary/40 transition-all duration-500 hover:scale-[1.03]">
               <img
-                  src="/MY Recent Image.png"
+                  src="/praveen-gupta-photo.png"
                   alt="Praveen Gupta"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -217,6 +217,29 @@ export function AboutPageContent() {
           {certifications.map((cert, i) => (
             <CertCard key={cert.title} cert={cert} index={i} />
           ))}
+        </div>
+      </Section>
+
+      {/* ─── Leadership ─── */}
+      <Section id="leadership">
+        <SectionHeader
+          label="Community"
+          title="Positions of Responsibility"
+          description="Leadership and community involvement."
+        />
+        <div className="grid sm:grid-cols-2 gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.02 }}
+            viewport={{ once: true }}
+            className="p-6 rounded-2xl glass border card-hover"
+          >
+            <h3 className="font-bold text-lg mb-2 text-primary">Student Lead — RoboDynamics Club</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Led the RoboDynamics Club, organizing technical workshops and robotics projects while mentoring peers in automation and innovation.
+            </p>
+          </motion.div>
         </div>
       </Section>
     </>

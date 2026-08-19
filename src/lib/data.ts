@@ -4,7 +4,7 @@
 
 export const siteConfig = {
   name: "Praveen Gupta",
-  title: "Full Stack Developer | AI/ML Engineer",
+  title: "Full-Stack Developer | AI/ML Engineer",
   education: "B.Tech in Computer Science and Technology",
   university: "Gurukul Kangri Deemed to be University, Haridwar",
   location: "Haridwar, Uttarakhand, India",
@@ -143,7 +143,7 @@ export const projects: ProjectType[] = [
   {
     id: "ai-candidate-discovery",
     title: "AI Candidate Discovery & Intelligent Ranking System",
-    description: "A semantic search and ranking engine processing 100K+ candidate profiles using FAISS and Sentence Transformers.",
+    description: "Engineered an AI-driven candidate discovery and ranking engine that semantically ranks 100K+ candidate profiles using dense retrieval and hybrid scoring. Built a FastAPI backend and Next.js dashboard exposing explainable AI rankings, reducing recruiter time-to-shortlist by 30%. Architected a decoupled monorepo with Dockerized deployment, enabling 50% faster deployment cycles.",
     longDescription: "An intelligent recruitment platform that utilizes NLP and vector embeddings to decouple traditional keyword search. Built with Python, FAISS, and Sentence Transformers for semantic matching. The decoupled architecture includes a FastAPI backend, React/Vite frontend, and Supabase/PostgreSQL for structured data storage, effectively scaling to handle 100K+ candidate profiles.",
     tags: ["Python", "FAISS", "Sentence Transformers", "FastAPI", "React", "Vite", "Supabase", "Docker"],
     domains: ["AI / ML", "NLP", "Software Engineering"],
@@ -153,7 +153,7 @@ export const projects: ProjectType[] = [
   {
     id: "coreai-distributed-inference",
     title: "CoreAI Distributed Inference Platform",
-    description: "A highly scalable distributed inference infrastructure using FastAPI, Redis queues, and PyTorch workers.",
+    description: "A distributed AI inference platform built with FastAPI, Redis, and PyTorch workers for scalable, low-latency LLM inference and real-time decision-support workloads. Designed an API Gateway + Worker architecture with asynchronous Redis queues to optimize query handling and database performance, backed by 39+ passing automated tests.",
     longDescription: "A robust ML infrastructure project demonstrating advanced asynchronous processing and decoupled microservices. The architecture utilizes a FastAPI Gateway to receive requests, Redis as a message broker for task queuing, and independent PyTorch workers for heavy ML inference. Containerized via Docker Compose and monitored with Prometheus.",
     tags: ["Python", "FastAPI", "PyTorch", "Redis", "Docker", "Prometheus"],
     domains: ["Distributed Systems", "Cloud / DevOps", "AI / ML"],
@@ -163,7 +163,7 @@ export const projects: ProjectType[] = [
   {
     id: "omnitutor",
     title: "OmniTutor",
-    description: "A real-time multimodal generative AI voice tutor utilizing WebSockets and Gemini Native Audio.",
+    description: "A real-time multimodal generative AI voice tutor built with WebSockets and Gemini Native Audio for low-latency, natural spoken interaction.",
     longDescription: "A cutting-edge generative AI application designed for real-time, bidirectional voice interactions. OmniTutor leverages Gemini 2.5 Flash Native Audio via WebSockets, implementing advanced features like voice activity detection, noise gating, and barge-in (interruption) handling for a natural conversational flow. Also includes screen sharing capabilities and Google Cloud Storage integration.",
     tags: ["Gemini", "WebSockets", "Node.js", "React", "Audio Worklet"],
     domains: ["Generative AI", "AI / ML", "Cloud / DevOps"],
@@ -173,7 +173,7 @@ export const projects: ProjectType[] = [
   {
     id: "helloalex",
     title: "HelloAlex",
-    description: "A voice-powered AI customer support agent capable of sentiment analysis and intent detection.",
+    description: "A voice-powered AI customer support agent with real-time sentiment analysis and intent detection, built to handle natural spoken customer queries end-to-end.",
     longDescription: "A voice-powered AI customer support system built with Next.js, Express, and Google Gemini. Features a sophisticated intent detection pipeline for handling dynamic interactions, integrated sentiment analysis, and seamless voice interaction via the Web Speech API. Includes a real-time agent dashboard and protocols for human escalation.",
     tags: ["Next.js", "Express", "Google Gemini", "Web Speech API"],
     domains: ["Generative AI", "AI / ML", "NLP", "SaaS / Product"],
@@ -183,17 +183,18 @@ export const projects: ProjectType[] = [
   {
     id: "clutch-momentum",
     title: "Clutch Momentum",
-    description: "A scalable SaaS platform for the creator economy featuring role-based dashboards.",
+    description: "Built the complete frontend for a creator-economy SaaS platform, including two role-based dashboards (Creator & Super Admin) and a responsive public landing experience. Implemented reusable UI, authentication, and state management with Next.js, TypeScript, and Zustand, deployed live on Vercel.",
     longDescription: "A full-stack product engineering project serving the creator economy. Features Next.js and TypeScript on the frontend with Zustand for state management. The platform includes secure role-based access control, differentiating between Creator dashboards and Super Admin dashboards, fully deployed on Vercel with a responsive public landing page.",
     tags: ["Next.js", "TypeScript", "Zustand", "SaaS"],
     domains: ["SaaS / Product", "Software Engineering"],
     github: "https://github.com/praveen-89/Clutch-Momentum",
+    demo: "https://clutch-momentum.vercel.app",
     featured: true,
   },
   {
     id: "library-monitoring-system",
     title: "Library Monitoring System with Computer Vision",
-    description: "A real-time computer vision system for posture detection, noise monitoring, and automated alerts.",
+    description: "A real-time computer vision system for posture detection, noise monitoring, and automated alerts — combining YOLOv8 object detection with MediaPipe pose estimation to flag rule violations without manual supervision.",
     longDescription: "A real-time AI and edge-vision application designed to monitor library environments. It leverages YOLOv8 for object detection and MediaPipe for advanced pose estimation to track activity. The system includes audio monitoring for noise detection and triggers automated voice/siren alerts using pyttsx3, directly processing real-time webcam feeds without relying on web technologies.",
     tags: ["Python", "YOLOv8", "MediaPipe", "OpenCV", "pyttsx3"],
     domains: ["Computer Vision", "Automation", "AI / ML"],
@@ -215,7 +216,7 @@ export const projects: ProjectType[] = [
     title: "Smart Claims Processing Platform",
     description: "An automated insurance technology platform designed to streamline claims handling.",
     longDescription: "A business process automation tool targeting the insurance sector. It utilizes intelligent processing workflows to rapidly ingest, analyze, and process claims data, reducing manual overhead and minimizing processing delays.",
-    tags: ["Automation", "Process Engineering"],
+    tags: ["Automation", "Process Engineering", "Guided Project"],
     domains: ["Automation", "Software Engineering"],
     github: "https://github.com/praveen-89/Smart-Claims-Processing-Platform_HiDevs",
     featured: false,
@@ -225,7 +226,7 @@ export const projects: ProjectType[] = [
     title: "Automated Underwriting Platform",
     description: "An AI-enhanced decision support system for automating underwriting processes.",
     longDescription: "An intelligent platform aimed at the financial and insurance industries. It integrates automated evaluation rules and decision support mechanics to quickly assess risk and underwrite applications with high accuracy.",
-    tags: ["Automation", "Decision Support"],
+    tags: ["Automation", "Decision Support", "Guided Project"],
     domains: ["Automation", "AI / ML"],
     github: "https://github.com/praveen-89/Automated-Underwriting-Platform_HiDevs",
     featured: false,
@@ -235,7 +236,7 @@ export const projects: ProjectType[] = [
     title: "Build Your Own AI Clone",
     description: "A backend systems project focused on creating personalized generative AI instances.",
     longDescription: "A generative AI backend engineering project exploring personalized language models. Designed to ingest personal data and contexts to spin up customized AI clones capable of responding in a specific persona.",
-    tags: ["Generative AI", "Backend", "LLMs"],
+    tags: ["Generative AI", "Backend", "LLMs", "Guided Project"],
     domains: ["Generative AI", "AI / ML", "Software Engineering"],
     github: "https://github.com/praveen-89/Build-Your-Own-AI-Clone_HiDevs",
     featured: false,
@@ -311,7 +312,14 @@ export const certifications: CertType[] = [
     link: "https://drive.google.com/file/d/1rUzAYugzM6POC5s4LmR3iQZ5-C_m2CvF/view?usp=sharing",
   },
   {
-    title: "AI Agent Architech",
+    title: "Cloud Computing Fundamentals",
+    issuer: "IBM SkillsBuild",
+    date: "2025",
+    icon: "cloud",
+    color: "from-blue-600 to-cyan-600",
+  },
+  {
+    title: "AI Agent Architect",
     issuer: "IBM SkillsBuild",
     date: "2025",
     icon: "award",
@@ -407,35 +415,29 @@ export type ExperienceType = {
 
 export const experiences: ExperienceType[] = [
   {
-    role: "Software Engineer Intern",
+    role: "Software Engineer Intern → Team Lead → Project Manager",
     company: "YugaYatra Retail (OPC) Private Ltd",
-    location: "Remote",
-    duration: "Sep 2025 — Present",
-    logo: "/yy logo.jpg",
-    description:
-      "Built a Power BI dashboard using automated GCP workflows, improving reporting efficiency by 50%. Forged strong stakeholder relationships by driving new initiatives and achieving project goals and annual renewals.",
+    location: "Bangalore, India (Hybrid)",
+    duration: "Sep 2025 – Mar 2026",
+    logo: "/yugayatra-logo.jpg",
+    description: "Promoted twice to Project Manager, leading cross-functional teams and delivering major platforms like FreshIn10 and Rishtawaala.com.",
     achievements: [
-      "Built a Power BI dashboard using automated GCP workflows",
-      "Improved reporting efficiency by 50% through automation",
-      "Forged strong stakeholder relationships via new initiatives",
-      "Achieved project goals and annual renewals",
-      "Demonstrated Agile methodology and collaborative planning",
-      "Strong problem solving, productivity, and communication",
+      "Promoted twice within the organization — from Software Engineer Intern to Team Lead to Project Manager — based on delivery ownership and cross-team collaboration; supervised 35+ interns.",
+      "Led development of FreshIn10 (freshin10.com), a fresh produce delivery platform spanning storefront, admin, CRM, and rider modules, and drove cross-functional coordination and on-time delivery for Rishtawaala.com as Project Manager.",
+      "Integrated production-grade third-party systems: TRAI-compliant DLT SMS registration, Aadhaar-based KYC verification API, and MSG91 transactional email/WhatsApp Business API messaging.",
     ],
-    tags: ["Power BI", "GCP", "Stakeholder Management", "Automation", "Google Workspace", "Cursor AI"],
+    tags: ["Project Management", "Team Leadership", "API Integration", "Product Delivery", "Cross-functional Coordination"],
   },
   {
     role: "Software Development Engineer Intern",
     company: "DIJIT Program",
-    location: "Remote",
-    duration: "Apr 2026 — Jul 2026",
-    description:
-      "Built an enterprise SaaS platform with 16K+ users featuring modular role-based authentication and secure backend session guards.",
+    location: "Hyderabad, India",
+    duration: "Apr 2026 – Jul 2026",
+    description: "Developed robust backend services, role-based authentication, and secure session management for an enterprise SaaS platform serving 16K+ users.",
     achievements: [
-      "Developed a robust CodeIgniter backend with REST APIs and modular routing.",
-      "Implemented role-based authentication (Candidate, Recruiter, Admin flows).",
-      "Secured application with robust backend session guards.",
-      "Collaborated using GitHub teams to scale the product to 16K+ users."
+      "Developed role-based authentication and access control features in a CodeIgniter, MySQL, and JavaScript SaaS platform serving 16K+ users, establishing clean local environments with Apache XAMPP.",
+      "Refactored a shared authentication architecture into differentiated candidate, recruiter, and admin flows using backend session guards, modular routing, and REST APIs.",
+      "Leveraged Cursor AI for code reviews and refactoring; collaborated in a 3-member GitHub team to deliver stable features."
     ],
     tags: ["CodeIgniter", "MySQL", "JavaScript", "RBAC", "SaaS", "Enterprise Software"],
   },
@@ -444,7 +446,7 @@ export const experiences: ExperienceType[] = [
     company: "IBM SkillsBuild",
     location: "Noida, India",
     duration: "June 2024 — July 2024",
-    logo: "/IBM logo",
+    logo: "/ibm-logo.png",
     description:
       "Developed AI solutions including a restaurant chatbot and Diabetes & Kidney Stone prediction models using IBM WatsonX.",
     achievements: [

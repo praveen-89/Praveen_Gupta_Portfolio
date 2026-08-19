@@ -23,7 +23,7 @@ export function Footer() {
             <div>
               <p className="font-bold leading-none">{siteConfig.name}</p>
               <p className="text-xs text-muted-foreground mt-0.5">
-                Full Stack Developer · AI/ML Engineer
+                Full-Stack Developer · AI/ML Engineer
               </p>
             </div>
           </div>

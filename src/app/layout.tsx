@@ -15,14 +15,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Praveen Gupta | Full Stack Developer & AI/ML Engineer",
+    default: "Praveen Gupta | Full-Stack Developer & AI/ML Engineer",
     template: "%s | Praveen Gupta",
   },
   description:
-    "Full Stack Developer and AI/ML Engineer specializing in scalable web applications, intelligent automation, and machine learning. B.Tech CSE graduate passionate about building real-world solutions.",
+    "Full-Stack Developer and AI/ML Engineer specializing in scalable web applications, intelligent automation, and machine learning. B.Tech CSE graduate passionate about building real-world solutions.",
   keywords: [
     "Praveen Gupta",
-    "Full Stack Developer",
+    "Full-Stack Developer",
     "AI ML Engineer",
     "Next.js",
     "React",
@@ -34,15 +34,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Praveen Gupta Portfolio",
-    title: "Praveen Gupta | Full Stack Developer & AI/ML Engineer",
+    title: "Praveen Gupta | Full-Stack Developer & AI/ML Engineer",
     description:
-      "Full Stack Developer and AI/ML Engineer specializing in scalable web applications and intelligent automation.",
+      "Full-Stack Developer and AI/ML Engineer specializing in scalable web applications and intelligent automation.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Praveen Gupta | Full Stack Developer & AI/ML Engineer",
+    title: "Praveen Gupta | Full-Stack Developer & AI/ML Engineer",
     description:
-      "Full Stack Developer and AI/ML Engineer specializing in scalable web applications and intelligent automation.",
+      "Full-Stack Developer and AI/ML Engineer specializing in scalable web applications and intelligent automation.",
   },
 };
 
