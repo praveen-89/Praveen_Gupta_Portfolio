@@ -13,6 +13,7 @@ export function EducationCard({ education, index }: { education: EducationType; 
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="bg-card w-full rounded-2xl border border-border/50 shadow-sm hover:shadow-md hover:border-border transition-all overflow-hidden card-hover"

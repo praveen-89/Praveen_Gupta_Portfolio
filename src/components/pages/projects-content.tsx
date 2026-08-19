@@ -16,7 +16,7 @@ export function ProjectsPageContent() {
   const filtered =
     activeCategory === "All"
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) => p.domains.includes(activeCategory));
 
   return (
     <>
@@ -35,8 +35,8 @@ export function ProjectsPageContent() {
               <span className="gradient-text">Projects</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl text-base sm:text-lg leading-relaxed">
-              A collection of real-world projects spanning web development, AI/ML,
-              automation, and systems programming.
+              A collection of real-world projects spanning software engineering, AI/ML,
+              distributed systems, computer vision, cloud infrastructure, and product development.
             </p>
           </motion.div>
         </div>
@@ -44,23 +44,24 @@ export function ProjectsPageContent() {
 
       {/* ─── Filter + Grid ─── */}
       <Section>
-        {/* Filter Tabs */}
-        <SectionHeader label="Portfolio" title="All Projects" />
-        <div className="flex flex-wrap gap-2 mb-10">
-          {projectCategories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={cn(
-                "px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200",
-                activeCategory === cat
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
-                  : "glass border text-muted-foreground hover:text-foreground hover:border-primary/30"
-              )}
-            >
-              {cat}
-            </button>
-          ))}
+        {/* Filter Tabs - horizontal scroll on mobile */}
+        <div className="overflow-x-auto pb-2 mb-10 -mx-1 px-1">
+          <div className="flex gap-2 min-w-max sm:flex-wrap sm:min-w-0">
+            {projectCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={cn(
+                  "px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 whitespace-nowrap",
+                  activeCategory === cat
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                    : "glass border text-muted-foreground hover:text-foreground hover:border-primary/30"
+                )}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Project Grid */}
@@ -113,9 +114,13 @@ export function ProjectsPageContent() {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-wider mb-4">
-                <Tag className="w-4 h-4" />
-                {selectedProject.category}
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                {selectedProject.domains.map((d) => (
+                  <span key={d} className="flex items-center gap-1 text-primary text-xs font-bold uppercase tracking-wider bg-primary/10 border border-primary/20 px-2.5 py-1 rounded-full">
+                    <Tag className="w-3 h-3" />
+                    {d}
+                  </span>
+                ))}
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-4">

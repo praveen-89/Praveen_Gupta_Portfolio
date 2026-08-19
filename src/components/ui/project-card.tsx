@@ -17,6 +17,7 @@ export function ProjectCard({ project, index = 0, onClick }: ProjectCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className={cn(
@@ -32,10 +33,10 @@ export function ProjectCard({ project, index = 0, onClick }: ProjectCardProps) {
         </span>
       )}
 
-      {/* Category Tag */}
-      <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
-        <Tag className="w-4 h-4" />
-        <span>{project.category}</span>
+      {/* Domain Tag */}
+      <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground mb-3 uppercase tracking-wider">
+        <Tag className="w-3 h-3" />
+        <span>{project.domains[0]}</span>
       </div>
 
       <h3 className="text-lg font-bold mb-2 group-hover:text-orange transition-colors leading-tight">

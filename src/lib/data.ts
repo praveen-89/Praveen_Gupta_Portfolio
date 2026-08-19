@@ -11,9 +11,7 @@ export const siteConfig = {
   email: "praveen.strange0@gmail.com",
   github: "https://github.com/praveen-89",
   linkedin: "https://www.linkedin.com/in/praveen-gupta11",
-  // View resume in browser (Google Drive preview)
   resumeView: "https://drive.google.com/file/d/1CCzNzWpRaZ4hDlR9u111uLgv0Q2dwySp/view?usp=sharing",
-  // Direct download link
   resumeDownload: "https://drive.google.com/uc?export=download&id=1CCzNzWpRaZ4hDlR9u111uLgv0Q2dwySp",
   description:
     "I'm a Full-Stack Developer & AI/ML Engineer building scalable web apps and intelligent automation systems. From AI voice agents to healthcare dashboards, I turn ideas into production-grade products powered by React, Next.js, Node.js, and cloud-native workflows.",
@@ -25,33 +23,84 @@ export const siteConfig = {
 };
 
 // ─── Skills ─────────────────────────────────────────────────
-export const skillCategories = [
+export type SkillCategoryType = {
+  title: string;
+  icon: string;
+  description: string;
+  skills: string[];
+  usedIn?: string;
+};
+
+export const skillCategories: SkillCategoryType[] = [
   {
-    title: "Languages",
+    title: "Programming Languages",
     icon: "Code2",
-    skills: ["C", "C++", "Python", "JavaScript", "TypeScript"],
+    description: "Core languages used for backend systems, scripting, and system-level applications.",
+    skills: ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
+    usedIn: "CoreAI, Library Monitoring, OmniTutor",
   },
   {
-    title: "Web Development",
+    title: "Frontend Engineering",
     icon: "Globe",
-    skills: ["React", "Next.js", "Node.js", "Express", "HTML/CSS", "REST APIs"],
+    description: "Building responsive, modern, and highly interactive user interfaces.",
+    skills: ["React", "Next.js", "Vite", "TypeScript", "Tailwind CSS"],
+    usedIn: "Clutch Momentum, HelloAlex, SevaGrid",
+  },
+  {
+    title: "Backend & API Engineering",
+    icon: "Server",
+    description: "Architecting robust APIs, microservices, and asynchronous background tasks.",
+    skills: ["Node.js", "Express.js", "FastAPI", "REST APIs", "CodeIgniter", "Redis"],
+    usedIn: "CoreAI, HelloAlex, Dijit Program",
   },
   {
     title: "AI / Machine Learning",
     icon: "Brain",
-    skills: [
-      "IBM Watsonx",
-      "Machine Learning",
-      "OpenCV",
-      "scikit-learn",
-      "Data Analysis",
-    ],
+    description: "Developing models for predictive analytics, natural language, and vector retrieval.",
+    skills: ["PyTorch", "Sentence Transformers", "Embeddings", "FAISS", "LLMs", "NLP", "Gemini API", "RAG"],
+    usedIn: "AI Candidate Discovery, CoreAI",
   },
   {
-    title: "Tools",
-    icon: "Cloud",
-    skills: ["Git", "GitHub", "VS Code", "Cursor", "Postman"],
+    title: "Generative AI",
+    icon: "Sparkles",
+    description: "Implementing voice AI, real-time agents, and multimodal context processing.",
+    skills: ["Gemini", "LLM Applications", "AI Agents", "Voice AI", "RAG", "Embeddings", "Semantic Search", "Prompt Engineering"],
+    usedIn: "OmniTutor, HelloAlex",
   },
+  {
+    title: "Databases & Data",
+    icon: "Database",
+    description: "Designing schemas and managing relational, NoSQL, and vector datastores.",
+    skills: ["PostgreSQL", "MongoDB", "MySQL", "Supabase", "SQL", "Vector Search / FAISS"],
+    usedIn: "AI Candidate Discovery, Dijit Program",
+  },
+  {
+    title: "Cloud & DevOps",
+    icon: "Cloud",
+    description: "Containerizing applications and deploying infrastructure for production workloads.",
+    skills: ["Docker", "Docker Compose", "Vercel", "Nginx", "Prometheus", "Google Cloud", "Git", "GitHub"],
+    usedIn: "CoreAI, Clutch Momentum",
+  },
+  {
+    title: "Systems & Architecture",
+    icon: "Network",
+    description: "Designing scalable, decoupled, and distributed software systems.",
+    skills: ["OOP / OOD", "Database Design", "System Design", "Distributed Systems", "REST Architecture", "Scalable Architectures", "Asynchronous Processing", "API Gateway / Worker Architecture"],
+    usedIn: "CoreAI, AI Candidate Discovery",
+  },
+  {
+    title: "Computer Vision & Automation",
+    icon: "Eye",
+    description: "Real-time object detection, posture tracking, and environmental monitoring.",
+    skills: ["YOLOv8", "MediaPipe", "OpenCV", "Real-Time Vision", "Pose Detection", "Audio Monitoring", "Automation"],
+    usedIn: "Library Monitoring System",
+  },
+  {
+    title: "Development Tools",
+    icon: "Wrench",
+    description: "Essential utilities for rapid development, testing, and version control.",
+    skills: ["GitHub", "Cursor AI", "Chrome DevTools", "VS Code", "Docker", "Postman"],
+  }
 ];
 
 export const technicalSkills = [
@@ -65,7 +114,6 @@ export const technicalSkills = [
   { name: "Cloud Computing", icon: "cloud" },
 ];
 
-// ─── Tech Stack ──────────────────────────────────────────────
 export const techStack = [
   { name: "React.js", icon: "react" },
   { name: "Node.js", icon: "nodejs" },
@@ -85,7 +133,7 @@ export type ProjectType = {
   description: string;
   longDescription: string;
   tags: string[];
-  category: string;
+  domains: string[];
   github: string;
   demo?: string;
   featured: boolean;
@@ -93,72 +141,130 @@ export type ProjectType = {
 
 export const projects: ProjectType[] = [
   {
+    id: "ai-candidate-discovery",
+    title: "AI Candidate Discovery & Intelligent Ranking System",
+    description: "A semantic search and ranking engine processing 100K+ candidate profiles using FAISS and Sentence Transformers.",
+    longDescription: "An intelligent recruitment platform that utilizes NLP and vector embeddings to decouple traditional keyword search. Built with Python, FAISS, and Sentence Transformers for semantic matching. The decoupled architecture includes a FastAPI backend, React/Vite frontend, and Supabase/PostgreSQL for structured data storage, effectively scaling to handle 100K+ candidate profiles.",
+    tags: ["Python", "FAISS", "Sentence Transformers", "FastAPI", "React", "Vite", "Supabase", "Docker"],
+    domains: ["AI / ML", "NLP", "Software Engineering"],
+    github: "https://github.com/praveen-89/AI-Candidate-Discovery-Intelligent-Ranking-System",
+    featured: true,
+  },
+  {
+    id: "coreai-distributed-inference",
+    title: "CoreAI Distributed Inference Platform",
+    description: "A highly scalable distributed inference infrastructure using FastAPI, Redis queues, and PyTorch workers.",
+    longDescription: "A robust ML infrastructure project demonstrating advanced asynchronous processing and decoupled microservices. The architecture utilizes a FastAPI Gateway to receive requests, Redis as a message broker for task queuing, and independent PyTorch workers for heavy ML inference. Containerized via Docker Compose and monitored with Prometheus.",
+    tags: ["Python", "FastAPI", "PyTorch", "Redis", "Docker", "Prometheus"],
+    domains: ["Distributed Systems", "Cloud / DevOps", "AI / ML"],
+    github: "https://github.com/praveen-89/CoreAI-Distributed-Inference-Platform",
+    featured: true,
+  },
+  {
+    id: "omnitutor",
+    title: "OmniTutor",
+    description: "A real-time multimodal generative AI voice tutor utilizing WebSockets and Gemini Native Audio.",
+    longDescription: "A cutting-edge generative AI application designed for real-time, bidirectional voice interactions. OmniTutor leverages Gemini 2.5 Flash Native Audio via WebSockets, implementing advanced features like voice activity detection, noise gating, and barge-in (interruption) handling for a natural conversational flow. Also includes screen sharing capabilities and Google Cloud Storage integration.",
+    tags: ["Gemini", "WebSockets", "Node.js", "React", "Audio Worklet"],
+    domains: ["Generative AI", "AI / ML", "Cloud / DevOps"],
+    github: "https://github.com/praveen-89/Omnitutor",
+    featured: true,
+  },
+  {
     id: "helloalex",
     title: "HelloAlex",
-    description:
-      "An AI voice support agent built with Next.js, Express, and Gemini that automates 80%+ of customer queries with multi-module intent handling.",
-    longDescription:
-      "HelloAlex is a production-grade AI Customer Support Voice Agent. Built with Next.js, Express.js, and Google Gemini AI, it automates 80%+ of inbound customer queries. The system implements 4+ intelligent modules covering intent detection, sentiment analysis, order management, and returns/refunds — improving resolution rates by 60%. Features a real-time support dashboard, voice I/O, cloud deployment on Vercel, and handles 100+ concurrent sessions.",
-    tags: ["Next.js", "Express.js", "Gemini AI", "Voice AI", "Node.js", "Cloud"],
-    category: "AI/ML",
+    description: "A voice-powered AI customer support agent capable of sentiment analysis and intent detection.",
+    longDescription: "A voice-powered AI customer support system built with Next.js, Express, and Google Gemini. Features a sophisticated intent detection pipeline for handling dynamic interactions, integrated sentiment analysis, and seamless voice interaction via the Web Speech API. Includes a real-time agent dashboard and protocols for human escalation.",
+    tags: ["Next.js", "Express", "Google Gemini", "Web Speech API"],
+    domains: ["Generative AI", "AI / ML", "NLP", "SaaS / Product"],
     github: "https://github.com/praveen-89/HelloAlex",
-    demo: "https://hello-alex-five.vercel.app",
     featured: true,
   },
   {
-    id: "diabetes-help",
-    title: "Diabetes_Help",
-    description:
-      "A full-stack healthcare platform with 3 user roles enabling appointments, digital health records, and real-time scheduling for 1000+ patients.",
-    longDescription:
-      "Diabetes_Help is a comprehensive full-stack healthcare management platform designed to streamline care for diabetic patients. Built with React (TypeScript), Tailwind CSS, and Supabase, it supports 3 distinct user roles (Patient, Doctor, Admin) with secure authentication, digital health records, appointment scheduling, and real-time dashboards. Manages 1000+ secure patient records and improves operational efficiency by 50% through automated scheduling and live updates.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Healthcare", "PostgreSQL"],
-    category: "Web",
-    github: "https://github.com/praveen-89/Diabetes_Help",
+    id: "clutch-momentum",
+    title: "Clutch Momentum",
+    description: "A scalable SaaS platform for the creator economy featuring role-based dashboards.",
+    longDescription: "A full-stack product engineering project serving the creator economy. Features Next.js and TypeScript on the frontend with Zustand for state management. The platform includes secure role-based access control, differentiating between Creator dashboards and Super Admin dashboards, fully deployed on Vercel with a responsive public landing page.",
+    tags: ["Next.js", "TypeScript", "Zustand", "SaaS"],
+    domains: ["SaaS / Product", "Software Engineering"],
+    github: "https://github.com/praveen-89/Clutch-Momentum",
     featured: true,
   },
   {
-    id: "ai-restaurant-chatbot",
-    title: "AI Restaurant Chatbot",
-    description:
-      "An AI-powered chatbot built with IBM WatsonX that handles restaurant reservations, menu queries, and customer support.",
-    longDescription:
-      "Built during the IBM SkillsBuild AI/ML internship, this conversational AI handles restaurant use cases including table reservations, answering menu queries, providing allergen information, and routing customer complaints. Integrated with a Node.js backend for reservation management. Part of the Diabetes & Kidney Stone prediction solution ecosystem developed using IBM WatsonX for healthcare analytics.",
-    tags: ["IBM WatsonX", "AI", "Node.js", "Chatbot", "NLP"],
-    category: "AI/ML",
-    github: "https://github.com/praveen-89",
-    demo: "https://www.linkedin.com/posts/praveen-gupta11_ibmwatsonx-ai-chatbotdevelopment-activity-7345018597913612288-U1_r?utm_source=share&utm_medium=member_android&rcm=ACoAAEZrLnkBNeCQjNuhQWwxVDdTvNuWFFf3AWc",
-    featured: true,
-  },
-  {
-    id: "diabetes-kidney-prediction",
-    title: "Diabetes & Kidney Stone Predictor",
-    description:
-      "ML models trained to predict Diabetes and detect Kidney Stones using data preprocessing, feature engineering, and IBM WatsonX workflows.",
-    longDescription:
-      "Developed during the IBM SkillsBuild AI/ML internship, this project features two healthcare prediction models. The Diabetes predictor uses logistic regression and ensemble methods on clinical data, while the Kidney Stone detector uses image-based ML models. Both were built using data preprocessing pipelines, feature engineering, and end-to-end AI workflows designed on IBM WatsonX for healthcare analytics.",
-    tags: ["Python", "Machine Learning", "IBM WatsonX", "Healthcare AI", "scikit-learn"],
-    category: "AI/ML",
-    github: "https://github.com/praveen-89",
-    demo: "https://www.linkedin.com/posts/praveen-gupta11_machinelearning-ibm-watsonx-activity-7345110369033441280-csyJ?utm_source=share&utm_medium=member_android&rcm=ACoAAEZrLnkBNeCQjNuhQWwxVDdTvNuWFFf3AWc",
-    featured: false,
-  },
-  {
-    id: "library-monitoring-cv",
-    title: "Library Monitoring System",
-    description:
-      "A real-time Computer Vision system tracking library occupancy and resource usage using object detection algorithms.",
-    longDescription:
-      "A Computer Vision and Machine Learning application designed to monitor library environments. It leverages object detection models to count occupants, track seating availability in real-time, and analyze resource utilization. Built using Python and OpenCV, it provides automated monitoring capabilities to improve facility management and user experience in educational institutions.",
-    tags: ["Python", "Computer Vision", "OpenCV", "Object Detection", "Machine Learning"],
-    category: "AI/ML",
+    id: "library-monitoring-system",
+    title: "Library Monitoring System with Computer Vision",
+    description: "A real-time computer vision system for posture detection, noise monitoring, and automated alerts.",
+    longDescription: "A real-time AI and edge-vision application designed to monitor library environments. It leverages YOLOv8 for object detection and MediaPipe for advanced pose estimation to track activity. The system includes audio monitoring for noise detection and triggers automated voice/siren alerts using pyttsx3, directly processing real-time webcam feeds without relying on web technologies.",
+    tags: ["Python", "YOLOv8", "MediaPipe", "OpenCV", "pyttsx3"],
+    domains: ["Computer Vision", "Automation", "AI / ML"],
     github: "https://github.com/praveen-89/Library-Monitering-System-with-Computer-Vision",
     featured: true,
   },
+  {
+    id: "sevagrid",
+    title: "SevaGrid",
+    description: "A full-stack product engineering solution focusing on social impact and community assistance.",
+    longDescription: "A socially-driven web application designed to bridge gaps in community support networks. Built with modern full-stack web technologies to ensure a robust, accessible, and responsive user experience.",
+    tags: ["Full-Stack", "Web Development", "React"],
+    domains: ["SaaS / Product", "Software Engineering"],
+    github: "https://github.com/praveen-89/SevaGrid",
+    featured: false,
+  },
+  {
+    id: "smart-claims-processing",
+    title: "Smart Claims Processing Platform",
+    description: "An automated insurance technology platform designed to streamline claims handling.",
+    longDescription: "A business process automation tool targeting the insurance sector. It utilizes intelligent processing workflows to rapidly ingest, analyze, and process claims data, reducing manual overhead and minimizing processing delays.",
+    tags: ["Automation", "Process Engineering"],
+    domains: ["Automation", "Software Engineering"],
+    github: "https://github.com/praveen-89/Smart-Claims-Processing-Platform_HiDevs",
+    featured: false,
+  },
+  {
+    id: "automated-underwriting",
+    title: "Automated Underwriting Platform",
+    description: "An AI-enhanced decision support system for automating underwriting processes.",
+    longDescription: "An intelligent platform aimed at the financial and insurance industries. It integrates automated evaluation rules and decision support mechanics to quickly assess risk and underwrite applications with high accuracy.",
+    tags: ["Automation", "Decision Support"],
+    domains: ["Automation", "AI / ML"],
+    github: "https://github.com/praveen-89/Automated-Underwriting-Platform_HiDevs",
+    featured: false,
+  },
+  {
+    id: "ai-clone",
+    title: "Build Your Own AI Clone",
+    description: "A backend systems project focused on creating personalized generative AI instances.",
+    longDescription: "A generative AI backend engineering project exploring personalized language models. Designed to ingest personal data and contexts to spin up customized AI clones capable of responding in a specific persona.",
+    tags: ["Generative AI", "Backend", "LLMs"],
+    domains: ["Generative AI", "AI / ML", "Software Engineering"],
+    github: "https://github.com/praveen-89/Build-Your-Own-AI-Clone_HiDevs",
+    featured: false,
+  },
+  {
+    id: "banking-management-system",
+    title: "Banking Management System",
+    description: "A foundational object-oriented C++ application for console-based banking operations.",
+    longDescription: "A foundational software engineering project built entirely in C++. It demonstrates core principles of Object-Oriented Programming (OOP) including inheritance, polymorphism, and encapsulation through a console-based interface for managing bank accounts and transactions.",
+    tags: ["C++", "OOP"],
+    domains: ["Other / Foundational", "Software Engineering"],
+    github: "https://github.com/praveen-89/Banking_Management_System",
+    featured: false,
+  }
 ];
 
 // ─── Project filter categories ────────────────────────────────
-export const projectCategories = ["All", "AI/ML", "Web"];
+export const projectCategories = [
+  "All", 
+  "Software Engineering", 
+  "AI / ML", 
+  "Generative AI", 
+  "Computer Vision", 
+  "Distributed Systems", 
+  "Cloud / DevOps", 
+  "SaaS / Product", 
+  "Automation", 
+  "Other / Foundational"
+];
 
 // ─── Expertise / Services ────────────────────────────────────
 export const expertise = [
@@ -245,8 +351,6 @@ export const certifications: CertType[] = [
     color: "from-green-500 to-teal-500",
     link: "https://drive.google.com/file/d/1y7iokpwzak8sDXVnn7h4aubPWzhwp_1e/view?usp=sharing",
   },
-
-
 ];
 
 // ─── Education ───────────────────────────────────────────────
@@ -319,6 +423,21 @@ export const experiences: ExperienceType[] = [
       "Strong problem solving, productivity, and communication",
     ],
     tags: ["Power BI", "GCP", "Stakeholder Management", "Automation", "Google Workspace", "Cursor AI"],
+  },
+  {
+    role: "Software Development Engineer Intern",
+    company: "DIJIT Program",
+    location: "Remote",
+    duration: "Apr 2026 — Jul 2026",
+    description:
+      "Built an enterprise SaaS platform with 16K+ users featuring modular role-based authentication and secure backend session guards.",
+    achievements: [
+      "Developed a robust CodeIgniter backend with REST APIs and modular routing.",
+      "Implemented role-based authentication (Candidate, Recruiter, Admin flows).",
+      "Secured application with robust backend session guards.",
+      "Collaborated using GitHub teams to scale the product to 16K+ users."
+    ],
+    tags: ["CodeIgniter", "MySQL", "JavaScript", "RBAC", "SaaS", "Enterprise Software"],
   },
   {
     role: "Artificial Intelligence & Machine Learning Intern",

@@ -5,7 +5,6 @@ import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowRight,
-  Download,
   ExternalLink,
   Mail,
   Github,
@@ -15,14 +14,19 @@ import {
   Globe,
   ChevronDown,
   Award,
-  Clock,
   Brain,
   Cloud,
   Sparkles,
+  Briefcase,
+  GraduationCap,
+  Server,
+  Eye,
+  Users,
+  Layers
 } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { ProjectCard } from "@/components/ui/project-card";
-import { siteConfig, projects, techStack, certifications, expertise } from "@/lib/data";
+import { siteConfig, projects, techStack, certifications, expertise, experiences, education, skillCategories } from "@/lib/data";
 
 // ─── Typing effect hook ───────────────────────────────────────
 const TITLES = [
@@ -62,19 +66,6 @@ function useTypingEffect(strings: string[], speed = 80, pause = 1800) {
   return display;
 }
 
-// ─── Tech logo pill ───────────────────────────────────────────
-const techIcons: Record<string, string> = {
-  react: "⚛",
-  nodejs: "⬡",
-  express: "EX",
-  mongodb: "M",
-  postgresql: "🐘",
-  supabase: "⚡",
-  tailwind: "≈",
-  ai: "🧠",
-  cloud: "☁",
-};
-
 // ─── Expertise icon map ───────────────────────────────────────
 const expertiseIconMap: Record<string, React.ElementType> = {
   Globe,
@@ -82,6 +73,11 @@ const expertiseIconMap: Record<string, React.ElementType> = {
   Cloud,
   Code2,
   Cpu,
+  Server,
+  Eye,
+  Users,
+  Layers,
+  Sparkles,
 };
 
 // ─── Page Component ───────────────────────────────────────────
@@ -251,91 +247,218 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ─── Stats (Dynamic) ─── */}
+      {/* ─── About Preview ─── */}
       <Section>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-left flex-1"
+          >
+            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+              Profile Overview
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              <span className="section-heading">About Me</span>
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              {siteConfig.description}
+            </p>
+            <div className="mt-2">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-200"
+              >
+                Explore About <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-48 h-48 sm:w-64 sm:h-64 shrink-0 rounded-3xl overflow-hidden border-2 border-primary/20 shadow-xl"
+          >
+            <img
+              src="/MY Recent Image.png"
+              alt={siteConfig.name}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* ─── Skills Preview ─── */}
+      <Section className="bg-muted/30 rounded-3xl">
+        <div className="text-left mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
+            Technical Proficiency
+          </p>
+          <h2 className="text-3xl font-bold">
+            <span className="section-heading">Skills Overview</span>
+          </h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          {skillCategories.slice(0, 4).map((category, i) => {
+            const Icon = expertiseIconMap[category.icon] || Code2;
+            return (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="p-6 rounded-2xl glass border card-hover"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-sm">{category.title}</h3>
+                </div>
+                <p className="text-[11px] text-muted-foreground mb-3 leading-relaxed line-clamp-2">{category.description}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {category.skills.slice(0, 4).map(skill => (
+                    <span key={skill} className="text-xs font-medium px-2 py-0.5 rounded-md bg-background border text-muted-foreground">
+                      {skill}
+                    </span>
+                  ))}
+                  {category.skills.length > 4 && (
+                    <span className="text-xs font-medium px-2 py-0.5 rounded-md bg-background border text-muted-foreground">
+                      +{category.skills.length - 4}
+                    </span>
+                  )}
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+        <div className="flex justify-start">
+          <Link
+            href="/about#skills"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary text-base font-bold hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-primary/30"
+          >
+            View All Skills <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </Section>
+
+      {/* ─── What I Build ─── */}
+      <Section>
+        <div className="text-left mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Domains</p>
+          <h2 className="text-3xl font-bold">
+            <span className="section-heading">What I Build</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground max-w-2xl leading-relaxed">A versatile engineer working across software, AI, systems, cloud, automation and emerging technologies.</p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            { label: "Projects Built", value: `${projects.length}+`, icon: Code2 },
-            { label: "Technologies", value: `${techStack.length}+`, icon: Cpu },
-            { label: "Certifications", value: `${certifications.length}`, icon: Award },
-            { label: "Years Learning", value: "3+", icon: Clock },
-          ].map(({ label, value, icon: Icon }, i) => (
+            { icon: Brain, title: "AI & Intelligent Systems", desc: "LLMs, RAG, semantic search, AI agents and ML applications.", color: "from-primary/10 to-accent/10" },
+            { icon: Globe, title: "Full-Stack Products", desc: "SaaS platforms, dashboards, APIs and role-based applications.", color: "from-orange/10 to-primary/5" },
+            { icon: Server, title: "AI Infrastructure", desc: "Distributed inference, asynchronous processing and model-serving systems.", color: "from-accent/10 to-primary/10" },
+            { icon: Eye, title: "Computer Vision", desc: "Real-time detection, pose estimation and intelligent monitoring.", color: "from-primary/10 to-orange/10" },
+            { icon: Cloud, title: "Cloud & DevOps", desc: "Containerized applications, deployment, monitoring and production infrastructure.", color: "from-accent/10 to-orange/5" },
+            { icon: Users, title: "Product & Leadership", desc: "Team coordination, project delivery, product development and technical ownership.", color: "from-orange/10 to-accent/10" },
+          ].map((item, i) => (
             <motion.div
-              key={label}
+              key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="text-center p-6 rounded-2xl glass border card-hover"
+              className="group relative p-6 rounded-2xl glass border overflow-hidden"
             >
-              <Icon className="w-5 h-5 text-primary mx-auto mb-3" />
-              <p className="text-3xl font-black gradient-text">{value}</p>
-              <p className="text-xs text-muted-foreground mt-1 font-medium">{label}</p>
+              <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-30 group-hover:opacity-60 transition-opacity duration-300`} />
+              <div className="relative z-10">
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-bold text-base mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
       </Section>
 
-      {/* ─── Explore More ─── */}
+      {/* ─── Experience Preview ─── */}
       <Section>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <p className="text-xl sm:text-2xl font-bold text-muted-foreground mb-6 tracking-wide">
-            Explore more of my work and connect with me
+        <div className="text-left mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
+            Professional Journey
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-foreground text-background font-semibold text-sm hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              <Github className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-              GitHub
-              <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-            </a>
-            <a
-              href={siteConfig.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-[#0A66C2] text-white font-semibold text-sm hover:scale-105 transition-all duration-300 shadow-lg shadow-[#0A66C2]/25 hover:shadow-xl hover:shadow-[#0A66C2]/30"
-            >
-              <Linkedin className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-              LinkedIn
-              <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-            </a>
-          </div>
-        </motion.div>
-      </Section>
-
-      {/* ─── Tech Stack ─── */}
-      <Section>
-        <div className="text-center mb-10">
-          <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">
-            Technologies I Work With
-          </p>
+          <h2 className="text-3xl font-bold">
+            <span className="section-heading">Experience</span>
+          </h2>
         </div>
-        <div className="flex flex-wrap justify-center gap-3">
-          {techStack.map((tech, i) => (
+        <div className="space-y-4">
+          {experiences.slice(0, 2).map((exp, i) => (
             <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="flex items-center gap-2.5 px-5 py-3 rounded-xl glass border orange-glass-hover hover:text-orange transition-all cursor-default mt-2"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="p-6 rounded-2xl glass border flex flex-col sm:flex-row justify-between gap-4 card-hover"
             >
-              <span className="w-8 h-8 rounded-md bg-gradient-to-br from-primary/20 to-orange/20 flex items-center justify-center text-sm font-black text-orange shadow-sm">
-                {techIcons[tech.icon]}
-              </span>
-              <span className="text-[15px] font-semibold">{tech.name}</span>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Briefcase className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">{exp.role}</h3>
+                  <p className="text-sm font-medium text-foreground/80 mb-1">{exp.company}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{exp.description}</p>
+                </div>
+              </div>
+              <div className="shrink-0 text-left sm:text-right">
+                <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary">
+                  {exp.duration}
+                </span>
+              </div>
             </motion.div>
           ))}
+        </div>
+        <div className="mt-8 flex justify-start">
+          <Link
+            href="/experience"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary text-base font-bold hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-primary/30"
+          >
+            View Experience <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </Section>
+
+      {/* ─── Featured Projects ─── */}
+      <Section className="bg-muted/30 rounded-3xl">
+        <div className="text-left mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
+            Highlights
+          </p>
+          <h2 className="text-3xl font-bold">
+            <span className="section-heading">Featured Projects</span>
+          </h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {featuredProjects.map((project, i) => (
+            <ProjectCard key={project.id} project={project} index={i} />
+          ))}
+        </div>
+        <div className="mt-8 flex justify-start">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            View All Projects <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </Section>
 
@@ -345,14 +468,14 @@ export default function HomePage() {
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-orange/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10">
-          <div className="text-center mb-14">
+          <div className="text-left mb-14">
             <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
               What I Do
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold">
               <span className="section-heading">My Expertise</span>
             </h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed text-base sm:text-lg">
+            <p className="mt-4 text-muted-foreground max-w-2xl leading-relaxed text-base sm:text-lg">
               I specialize in building full-stack applications, intelligent AI systems, and cloud-native solutions.
             </p>
           </div>
@@ -365,6 +488,7 @@ export default function HomePage() {
                   key={item.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.12 }}
                   className="group relative p-8 rounded-3xl bg-card border orange-glass-hover transition-all duration-500 overflow-hidden"
@@ -407,31 +531,103 @@ export default function HomePage() {
               );
             })}
           </div>
+
+          <div className="mt-12 flex justify-start">
+            <Link
+              href="/about#skills"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary text-base font-bold hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-primary/30"
+            >
+              Explore Expertise <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </Section>
 
-      {/* ─── Featured Projects ─── */}
-      <Section>
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
-              Highlights
-            </p>
-            <h2 className="text-3xl font-bold">
-              <span className="section-heading">Featured Projects</span>
-            </h2>
-          </div>
-          <Link
-            href="/projects"
-            className="flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
-          >
-            View All <ArrowRight className="w-4 h-4" />
-          </Link>
+      {/* ─── Certifications Preview ─── */}
+      <Section className="bg-muted/30 rounded-3xl">
+        <div className="text-left mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
+            Achievements
+          </p>
+          <h2 className="text-3xl font-bold">
+            <span className="section-heading">Certifications</span>
+          </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {featuredProjects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+          {certifications.slice(0, 3).map((cert, i) => (
+            <motion.div
+              key={cert.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="p-6 rounded-2xl glass border card-hover"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <Award className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-bold text-lg mb-2 leading-tight">{cert.title}</h3>
+              <p className="text-sm text-muted-foreground">{cert.issuer} • {cert.date}</p>
+            </motion.div>
           ))}
+        </div>
+        <div className="mt-8 flex justify-start">
+          <Link
+            href="/about#certifications"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary text-base font-bold hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-primary/30"
+          >
+            View All Certifications <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </Section>
+
+      {/* ─── Education Preview ─── */}
+      <Section>
+        <div className="text-left mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
+            Academic Background
+          </p>
+          <h2 className="text-3xl font-bold">
+            <span className="section-heading">Education</span>
+          </h2>
+        </div>
+        <div className="space-y-4">
+          {education.slice(0, 1).map((edu, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="p-6 rounded-2xl glass border flex flex-col sm:flex-row justify-between gap-4 card-hover"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <GraduationCap className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">{edu.degree}</h3>
+                  <p className="text-sm font-medium text-foreground/80 mb-1">{edu.institution}</p>
+                  <p className="text-sm text-muted-foreground">{edu.status}</p>
+                </div>
+              </div>
+              <div className="shrink-0 text-left sm:text-right">
+                <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary">
+                  {edu.duration}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-8 flex justify-start">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary text-base font-bold hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-primary/30"
+          >
+            View Education <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </Section>
 
@@ -440,6 +636,7 @@ export default function HomePage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="relative rounded-3xl overflow-hidden p-10 sm:p-14 text-center"
@@ -454,26 +651,23 @@ export default function HomePage() {
             <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
               Let&apos;s Build Something{" "}
-              <span className="gradient-text">Amazing Together</span>
+              <span className="gradient-text">Meaningful Together</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto mb-8 leading-relaxed">
-              I&apos;m always open to new projects, collaborations, and exciting opportunities.
-              Feel free to reach out if you have an idea you&apos;d like to bring to life.
+              Open to software engineering, full-stack and AI opportunities.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/25"
               >
-                <Mail className="w-4 h-4" /> Get in Touch
+                <Mail className="w-4 h-4" /> Contact Me
               </Link>
               <a
-                href={siteConfig.resumeView}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`mailto:${siteConfig.email}`}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border font-semibold text-sm hover:border-primary/30 transition-all hover:scale-105"
               >
-                <ExternalLink className="w-4 h-4" /> View Resume
+                <ExternalLink className="w-4 h-4" /> Email Me
               </a>
             </div>
           </div>

@@ -27,6 +27,7 @@ export function CertCard({ cert, index = 0 }: CertCardProps) {
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
+      whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="flex items-start gap-4 p-5 rounded-2xl bg-card border card-hover"

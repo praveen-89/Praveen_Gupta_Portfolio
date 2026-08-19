@@ -138,7 +138,7 @@ body {
               box-shadow 0.3s ease;
 }
 .card-hover:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.03);
   box-shadow: 0 20px 60px oklch(0 0 0 / 0.15);
 }
 
@@ -151,6 +151,7 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .orange-glass-hover:hover {
+  transform: translateY(-4px) scale(1.03);
   background: oklch(0.75 0.18 55 / 0.08);
   border-color: oklch(0.75 0.18 55 / 0.3);
   box-shadow: 0 15px 35px -5px oklch(0.75 0.18 55 / 0.15);
