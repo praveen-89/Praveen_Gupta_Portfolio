@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { ProjectCard } from "@/components/ui/project-card";
+import { StickyNote } from "@/components/ui/sticky-note";
 import { siteConfig, projects, techStack, certifications, expertise, experiences, education, skillCategories } from "@/lib/data";
 
 // ─── Typing effect hook ───────────────────────────────────────
@@ -104,6 +105,11 @@ export default function HomePage() {
 
   return (
     <>
+      <StickyNote 
+        id="home_multipage_reminder" 
+        message="This is a multi-page portfolio. Don't forget to explore all the pages using the navigation bar!" 
+        delay={4000} 
+      />
       {/* ─── Hero ─── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 px-4 sm:px-6 hero-gradient overflow-hidden">
         {/* Decorative blobs */}

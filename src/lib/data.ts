@@ -137,6 +137,8 @@ export type ProjectType = {
   github: string;
   demo?: string;
   featured: boolean;
+  image?: string;
+  keyFeatures?: string[];
 };
 
 export const projects: ProjectType[] = [
@@ -149,6 +151,8 @@ export const projects: ProjectType[] = [
     domains: ["AI / ML", "NLP", "Software Engineering"],
     github: "https://github.com/praveen-89/AI-Candidate-Discovery-Intelligent-Ranking-System",
     featured: true,
+    image: "/projects/ai-candidate-discovery.jpg",
+    keyFeatures: ["Semantic ranking of 100K+ profiles", "Explainable AI dashboard with FAISS"],
   },
   {
     id: "coreai-distributed-inference",
@@ -159,6 +163,8 @@ export const projects: ProjectType[] = [
     domains: ["Distributed Systems", "Cloud / DevOps", "AI / ML"],
     github: "https://github.com/praveen-89/CoreAI-Distributed-Inference-Platform",
     featured: true,
+    image: "/projects/coreai-distributed-inference.jpg",
+    keyFeatures: ["API Gateway + Worker async architecture", "39+ automated tests with Prometheus monitoring"],
   },
   {
     id: "omnitutor",
@@ -169,6 +175,8 @@ export const projects: ProjectType[] = [
     domains: ["Generative AI", "AI / ML", "Cloud / DevOps"],
     github: "https://github.com/praveen-89/Omnitutor",
     featured: true,
+    image: "/projects/omnitutor.jpg",
+    keyFeatures: ["Real-time bidirectional voice with Gemini", "Voice activity detection & barge-in handling"],
   },
   {
     id: "helloalex",
@@ -179,6 +187,8 @@ export const projects: ProjectType[] = [
     domains: ["Generative AI", "AI / ML", "NLP", "SaaS / Product"],
     github: "https://github.com/praveen-89/HelloAlex",
     featured: true,
+    image: "/projects/helloalex.jpg",
+    keyFeatures: ["Real-time sentiment analysis", "Sophisticated intent detection pipeline"],
   },
   {
     id: "clutch-momentum",
@@ -190,6 +200,8 @@ export const projects: ProjectType[] = [
     github: "https://github.com/praveen-89/Clutch-Momentum",
     demo: "https://clutch-momentum.vercel.app",
     featured: true,
+    image: "/projects/clutch-momentum.jpg",
+    keyFeatures: ["Dual role-based dashboards (Creator & Admin)", "Deployed live on Vercel"],
   },
   {
     id: "library-monitoring-system",
@@ -200,6 +212,8 @@ export const projects: ProjectType[] = [
     domains: ["Computer Vision", "Automation", "AI / ML"],
     github: "https://github.com/praveen-89/Library-Monitering-System-with-Computer-Vision",
     featured: true,
+    image: "/projects/library-monitoring-system.jpg",
+    keyFeatures: ["YOLOv8 + MediaPipe real-time pose detection", "Automated audio alerts via pyttsx3"],
   },
   {
     id: "sevagrid",
@@ -210,6 +224,7 @@ export const projects: ProjectType[] = [
     domains: ["SaaS / Product", "Software Engineering"],
     github: "https://github.com/praveen-89/SevaGrid",
     featured: false,
+    keyFeatures: ["Community service request & matching", "Full-stack responsive web experience"],
   },
   {
     id: "smart-claims-processing",
@@ -220,6 +235,7 @@ export const projects: ProjectType[] = [
     domains: ["Automation", "Software Engineering"],
     github: "https://github.com/praveen-89/Smart-Claims-Processing-Platform_HiDevs",
     featured: false,
+    keyFeatures: ["Automated claims ingestion & analysis", "Workflow-driven processing pipeline"],
   },
   {
     id: "automated-underwriting",
@@ -230,6 +246,7 @@ export const projects: ProjectType[] = [
     domains: ["Automation", "AI / ML"],
     github: "https://github.com/praveen-89/Automated-Underwriting-Platform_HiDevs",
     featured: false,
+    keyFeatures: ["AI risk scoring and evaluation", "Automated decision support for applications"],
   },
   {
     id: "ai-clone",
@@ -240,6 +257,7 @@ export const projects: ProjectType[] = [
     domains: ["Generative AI", "AI / ML", "Software Engineering"],
     github: "https://github.com/praveen-89/Build-Your-Own-AI-Clone_HiDevs",
     featured: false,
+    keyFeatures: ["Personalized LLM persona generation", "Context-aware data ingestion pipeline"],
   },
   {
     id: "banking-management-system",
@@ -250,6 +268,7 @@ export const projects: ProjectType[] = [
     domains: ["Other / Foundational", "Software Engineering"],
     github: "https://github.com/praveen-89/Banking_Management_System",
     featured: false,
+    keyFeatures: ["Full OOP with inheritance & polymorphism", "Console-based account & transaction management"],
   }
 ];
 

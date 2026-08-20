@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ProjectsPageContent } from "@/components/pages/projects-content";
+import { StickyNote } from "@/components/ui/sticky-note";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -8,5 +9,14 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <ProjectsPageContent />;
+  return (
+    <>
+      <StickyNote 
+        id="projects_tap_reminder" 
+        message="Tap on project cards to see the full description!" 
+        delay={2000} 
+      />
+      <ProjectsPageContent />
+    </>
+  );
 }
