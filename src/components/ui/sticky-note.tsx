@@ -16,7 +16,7 @@ export function StickyNote({ id, message, position = "bottom-right", delay = 200
 
   useEffect(() => {
     // Check if user already dismissed it
-    const dismissed = localStorage.getItem(`sticky_note_${id}`);
+    const dismissed = sessionStorage.getItem(`sticky_note_${id}`);
     if (!dismissed) {
       const timer = setTimeout(() => setIsVisible(true), delay);
       return () => clearTimeout(timer);
@@ -25,16 +25,16 @@ export function StickyNote({ id, message, position = "bottom-right", delay = 200
 
   const handleDismiss = () => {
     setIsVisible(false);
-    localStorage.setItem(`sticky_note_${id}`, "true");
+    sessionStorage.setItem(`sticky_note_${id}`, "true");
   };
 
   const getPositionClasses = () => {
     switch (position) {
-      case "bottom-right": return "bottom-6 right-6";
-      case "bottom-left": return "bottom-6 left-6";
+      case "bottom-right": return "bottom-24 md:bottom-6 right-6";
+      case "bottom-left": return "bottom-24 md:bottom-6 left-6";
       case "top-right": return "top-24 right-6";
       case "top-left": return "top-24 left-6";
-      default: return "bottom-6 right-6";
+      default: return "bottom-24 md:bottom-6 right-6";
     }
   };
 
